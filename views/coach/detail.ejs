@@ -1,0 +1,38 @@
+
+<h2> <%= coach.nameCoach %></h2>
+
+<div>
+    Email: <%= coach.emailAddressCoach %>
+</div>
+
+<div>
+    Phone Number: <%= coach.phoneNumber %>
+</div>
+
+<div>
+    Region: <%= coach.region %>
+</div>
+
+
+<div>
+    Created at: <%= moment(coach.createdAt).fromNow() %>
+</div>
+<div>
+    Updated at: <%= moment(coach.updatedAt).fromNow() %>
+</div>
+<br>
+
+<!-- Clubs! -->
+<!-- <% coach.club.forEach(function(club) { %>
+
+    <div>Club: <%= club.nameClub %></div>
+
+<% }) %> -->
+
+<!-- Training Plan -->
+
+<% coach.trainingPlan.forEach(function(trainingPlan) { %>
+
+    <div>Training Plans: <%= coach.trainingPlan %></div>
+
+<% }) %>

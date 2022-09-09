@@ -37,10 +37,6 @@ app.use('/', indexRouter);
 
 
 
-app.set("view engine", "ejs");
-
-
-
 
 // Look into views folder for layouts page
 

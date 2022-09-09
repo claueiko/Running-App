@@ -20,12 +20,8 @@ const app = express();
 app.use(express.static("public"));
 
 // Require express-ejs-layouts dependancy
-const expressLayouts = require('express-ejs-layouts');
-
 //  Import Routes below
 const indexRouter = require('./routes/index');
-
-app.use(expressLayouts);
 
 
 
@@ -34,10 +30,6 @@ app.use(expressLayouts);
 // Mount Routes
 app.use('/', indexRouter);
 
-
-
-
-app.set("view engine", "ejs");
 
 
 

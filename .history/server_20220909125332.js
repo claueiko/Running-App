@@ -34,9 +34,6 @@ app.use(expressLayouts);
 // Mount Routes
 app.use('/', indexRouter);
 
-
-
-
 app.set("view engine", "ejs");
 
 

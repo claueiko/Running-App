@@ -18,29 +18,8 @@ const app = express();
 
 // looking for static files in Public folder
 app.use(express.static("public"));
-
 // Require express-ejs-layouts dependancy
-const expressLayouts = require('express-ejs-layouts');
-
 //  Import Routes below
-const indexRouter = require('./routes/index');
-
-app.use(expressLayouts);
-
-
-
-
-
-// Mount Routes
-app.use('/', indexRouter);
-
-
-
-
-app.set("view engine", "ejs");
-
-
-
 
 // Look into views folder for layouts page
 

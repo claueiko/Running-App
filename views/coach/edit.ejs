@@ -1,0 +1,35 @@
+<h1>Edit Coach</h1>
+
+
+<form method="POST" action="/coach/update?_method=PUT">
+
+    <div>
+        <label for="">Name</label>
+        <input type="text" name="nameCoach" value="<%= coach.nameCoach %>">
+    </div>
+
+     <div>
+        <label for="">Email</label>
+        <input type="text" name="emailAddressCoach" value="<%= coach.emailAddressCoach %>">
+    </div>
+
+    <div>
+        <label for="">Phone</label>
+        <input type="text" name="phoneNumber" value="<%= coach.phoneNumber %>">
+    </div>
+
+     <div>
+        <label for="">Region</label>
+        <input type="text" name="region" value="<%= coach.region %>">
+    </div>
+
+
+   <!-- // ADD CLUB AND REGION TO EDIT -->
+
+    <input type="hidden" name="id" value="<%= coach._id %>" />
+
+    <button type="submit">Update coach</button>
+
+
+
+</form>

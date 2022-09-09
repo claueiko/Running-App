@@ -62,7 +62,7 @@ exports.coach_create_post = (req, res) => {
 exports.coach_index_get = (req, res) => {
   Coach.find()
     .populate("athlete")
-    .then((coaches) => {
+    .then((coachs) => {
       res.render("coach/index", { coaches, moment });
     })
     .catch((err) => {

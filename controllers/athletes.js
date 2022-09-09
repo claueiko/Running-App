@@ -16,7 +16,7 @@ exports.athlete_create_get = (req, res) => {
     // res.render("athlete/add");
     Coach.find()
     .then((coaches) => {
-        res.render("athlete/add", {coaches})
+        res.render("athlete/add", { coaches })
     })
     .catch((err) => {
         console.log(err);

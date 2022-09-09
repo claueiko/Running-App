@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const runnerSchema = mongoose.Schema({
+const athleteSchema = mongoose.Schema({
     nameAthlete: String,
     emailAddress: String,
     gender: String,
@@ -22,6 +22,6 @@ const runnerSchema = mongoose.Schema({
 },
 {timestamps: true})
 
-const Runner = mongoose.model("Runner", runnerSchema);
+const Athlete = mongoose.model("Athlete", athleteSchema);
 
-module.exports = {Runner}
+module.exports = {Athlete}

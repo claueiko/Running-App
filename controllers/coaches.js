@@ -1,28 +1,17 @@
 // Require Coach Model
-
-const { Coach } = require("../models/Coach");
-// const { Club } = require("../models/Club");
-// const { Event } = require("../models/Event");
 const { Athlete } = require("../models/Athlete");
-//another way for the above: constCoach = require("..models/Coach").Coach;
-
+const { Coach } = require("../models/Coach");
 // Api to require moment library
 const moment = require("moment");
 
-// APIs for coaches
+// APIs for coachs
+
 //CRUD
 
 // Create
-//HTTP GET - Load coach From
+//HTTP GET - Load coachFrom
 exports.coach_create_get = (req, res) => {
-  // res.render("coach/add");
-  Athlete.find()
-    .then((athlete) => {
-      res.render("coach/add", { athlete });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  res.render("coach/add");
 };
 
 //HTTP POST - Coach
@@ -32,36 +21,20 @@ exports.coach_create_post = (req, res) => {
 
   // Saving the data into the database
   let coach = new Coach(req.body);
-
   coach
     .save()
     .then(() => {
-      //Many to Many M2MR
-      req.body.athlete.forEach((athlete) => {
-        Author.findById(athlete, (error, athlete) => {
-          athlete.coach.push(coach);
-          athlete.save();
-        });
-      });
       res.redirect("/coach/index");
     })
     .catch((err) => {
       console.log(err);
       res.send("Please write again later.");
     });
-
-  //THIS BELOW IS EMBEDDED
-  // Author.findById(req.body.athlete, (error, athlete) => {
-  //     athlete.coach.push(coach);
-  //     athlete.save();
-  //     res.redirect("/athlete/index");
-  // })
 };
 
 // HTTP Get - Coach index API
 exports.coach_index_get = (req, res) => {
   Coach.find()
-    .populate("athlete")
     .then((coaches) => {
       res.render("coach/index", { coaches, moment });
     })

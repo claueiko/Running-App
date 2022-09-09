@@ -1,6 +1,6 @@
 // Require Models
-const { Athlete } = require("../models/Athlete");
-const { Coach } = require("../models/Coach");
+const {Athlete} = require("../models/Athlete");
+const {Coach} = require("../models/Coach");
 // const Athlete = require("../models/Athlete").Athlete;
 
 // Require Moment Library

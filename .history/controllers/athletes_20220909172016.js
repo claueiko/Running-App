@@ -60,7 +60,7 @@ exports.athlete_create_post = (req, res) => {
 
 // HTTP GET - Athlete Index API - We will need to write, 'club' on line 63 at the end of 'coach'.
 exports.athlete_index_get = (req, res) => {
-    Athlete.find().populate('coach')
+    Athlete.find().populate('coach', 'club')
     .then(athletes => {
         res.render("athlete/index", {athletes: athletes, moment}) // athletes: athletes, moment: moment
     })

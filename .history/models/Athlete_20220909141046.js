@@ -1,27 +1,25 @@
 const mongoose = require('mongoose')
 
 const runnerSchema = mongoose.Schema({
-    nameAthlete: String,
+    firstName: String,
+    lastName: String,
     emailAddress: String,
     gender: String,
     dateOfBirth: Date,
-    // photo: Insert photo later
+    region: String,
     club: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Club'
-    }],
-    coach: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Coach'
     }],
     event: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Event'
     }],
-    region: String,
+    coach: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Coach'
+    }]
 },
 {timestamps: true})
 
 const Runner = mongoose.model("Runner", runnerSchema);
-
-module.exports = {Runner}

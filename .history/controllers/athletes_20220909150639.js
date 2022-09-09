@@ -34,6 +34,8 @@ exports.athlete_create_post = (req, res) => {
 
     athlete.save()
     .then(() => {
+
+
         // M2MR
         req.body.coach.forEach(coach => {
             Coach.findById(coach, (error, coach) => {
@@ -60,7 +62,7 @@ exports.athlete_create_post = (req, res) => {
 
 // HTTP GET - Athlete Index API
 exports.athlete_index_get = (req, res) => {
-    Athlete.find().populate('coach')
+    Athlete.find().populate('coache')
     .then(athletes => {
         res.render("athlete/index", {athletes: athletes, moment}) // athletes: athletes, moment: moment
     })
@@ -74,7 +76,7 @@ exports.athlete_show_get = (req, res) => {
     console.log(req.query.id);
 
     // Find the athlete by ID
-    Athlete.findById(req.query.id).populate('coach')
+    Athlete.findById(req.query.id).populate('coache')
     .then(athlete => {
         res.render("athlete/detail", {athlete, moment}) // athlete: athlete, moment: moment
     })

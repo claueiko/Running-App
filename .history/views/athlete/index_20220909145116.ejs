@@ -3,7 +3,7 @@
 <table class="table table-striped">
     <tr>
         <th> Name </th>
-        <th> Email </th>
+        <th> Email Address </th>
         <th> Gender </th>
         <th> Date of Birth </th>
         <th> Club </th>
@@ -28,7 +28,6 @@
             <td><%= athlete.event %></td>
             <td><%= athlete.region %></td>
             <td><%= moment(athlete.createdAt).fromNow() %></td>
-            <td><%= moment(athlete.updatedAt).fromNow() %></td>
 
             <td><a href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </td>
             <td><a href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </td>

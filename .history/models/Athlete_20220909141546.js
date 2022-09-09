@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 
 const runnerSchema = mongoose.Schema({
-    nameAthlete: String,
+    firstName: String,
+    lastName: String,
     emailAddress: String,
     gender: String,
     dateOfBirth: Date,
@@ -10,13 +11,13 @@ const runnerSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Club'
     }],
-    coach: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Coach'
-    }],
     event: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Event'
+    }],
+    coach: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Coach'
     }],
     region: String,
 },

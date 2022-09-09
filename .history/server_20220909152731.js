@@ -36,7 +36,6 @@ app.use(expressLayouts);
 // Mount Routes
 app.use('/', indexRouter);
 app.use('/', athleteRouter);
-app.use('/', coachRouter);
 
 
 

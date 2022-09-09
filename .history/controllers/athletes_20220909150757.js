@@ -34,6 +34,8 @@ exports.athlete_create_post = (req, res) => {
 
     athlete.save()
     .then(() => {
+
+
         // M2MR
         req.body.coach.forEach(coach => {
             Coach.findById(coach, (error, coach) => {

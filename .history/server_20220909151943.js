@@ -25,7 +25,6 @@ const expressLayouts = require('express-ejs-layouts');
 //  Import Routes below
 const indexRouter = require('./routes/index');
 const athleteRouter = require('./routes/athletes');
-const coachRouter = require('./routes/coaches');
 
 app.use(expressLayouts);
 
@@ -35,8 +34,7 @@ app.use(expressLayouts);
 
 // Mount Routes
 app.use('/', indexRouter);
-app.use('/', athleteRouter);
-app.use('/', coachRouter);
+// app.use('/', athleteRouter);
 
 
 

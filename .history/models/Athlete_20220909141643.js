@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 
 const runnerSchema = mongoose.Schema({
-    nameAthlete: String,
+    firstName: String,
+    lastName: String,
     emailAddress: String,
     gender: String,
     dateOfBirth: Date,

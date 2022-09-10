@@ -1,0 +1,36 @@
+body {
+    font-family: 'Red Hat Display', sans-serif;
+    color: black;
+    
+    font-size: 22px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.logo {
+    font-size: 60px;
+    font-weight: 900;
+}
+.navbar {
+    padding: 20px 20px;
+}
+.menu-nav {
+    margin-left: 15px;
+    font-weight: 500;
+    
+}
+.signup {
+    background-color: black;
+    color: white;
+    padding: 5px 15px;
+}
+.hero {
+    background-image: url("/images/woman-running.jpeg");
+    background-size: cover;
+    background-position: bottom;
+    height: 650px;
+}

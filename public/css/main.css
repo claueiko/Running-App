@@ -17,8 +17,13 @@ a:hover {
     font-size: 60px;
     font-weight: 900;
 }
+/* .navbar {
+    display: flex;
+} */
 .navbar {
     padding: 20px 20px;
+    
+    
 }
 .menu-nav {
     margin-left: 25px;
@@ -59,6 +64,7 @@ a:hover {
 }
 .subtitle {
     color:black;
+    font-weight: 400;
 }
 .hero-button {
     background-color: black;

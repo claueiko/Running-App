@@ -1,35 +1,36 @@
-<h1>Edit Coach</h1>
+<section class="coach-page">
+    <p class="page-title">EDIT COACH</p>
 
+<form method="POST" action="/coach/update?_method=PUT" class="form">
 
-<form method="POST" action="/coach/update?_method=PUT">
-
-    <div>
+    <div class="form-group">
         <label for="">Name</label>
-        <input type="text" name="nameCoach" value="<%= coach.nameCoach %>">
-    </div>
+        <input type="text" name="nameCoach" value="<%= coach.nameCoach %>" class="form-control form-field">
+    </div><br>
 
-     <div>
+     <div class="form-group">
         <label for="">Email</label>
-        <input type="text" name="emailAddressCoach" value="<%= coach.emailAddressCoach %>">
-    </div>
+        <input type="text" name="emailAddressCoach" value="<%= coach.emailAddressCoach %>" class="form-control form-field">
+    </div><br>
 
-    <div>
+    <div class="form-group">
         <label for="">Phone</label>
-        <input type="text" name="phoneNumber" value="<%= coach.phoneNumber %>">
-    </div>
+        <input type="text" name="phoneNumber" value="<%= coach.phoneNumber %>" class="form-control form-field">
+    </div><br>
 
-     <div>
+     <div class="form-group">
         <label for="">Region</label>
-        <input type="text" name="region" value="<%= coach.region %>">
-    </div>
+        <input type="text" name="region" value="<%= coach.region %>" class="form-control form-field">
+    </div><br>
 
 
    <!-- // ADD CLUB AND REGION TO EDIT -->
 
     <input type="hidden" name="id" value="<%= coach._id %>" />
 
-    <button type="submit">Update coach</button>
+    <button type="submit" class="submit-button">Update coach</button>
 
 
 
 </form>
+</section>

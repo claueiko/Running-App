@@ -12,7 +12,7 @@
             <p>Region: <%= coach.region %></p>
             <p class="moment-class">Created: <%= moment(coach.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(coach.updatedAt).fromNow() %></p>
-            <a class="edit-button" href="#">Edit profile</a>
+            <a class="edit-button" href="/coach/edit?id=<%= coach._id %>">Edit profile</a>
         </div>
         <div class="coach-column">
             <p>Club Information</p>

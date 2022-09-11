@@ -10,6 +10,9 @@ a {
     text-decoration: none;
     font-size: 22px;
 }
+a:hover {
+    color: rgb(58, 43, 226);
+}
 
 .logo {
     font-size: 60px;
@@ -19,7 +22,7 @@ a {
     padding: 20px 20px;
 }
 .menu-nav {
-    margin-left: 15px;
+    margin-left: 25px;
     font-weight: 500;
     
 }
@@ -27,24 +30,46 @@ a {
     background-color: black;
     color: white;
     padding: 5px 15px;
+    border-radius: 10px;
 }
-.hero {
-    background-image: url("/images/woman-running.jpeg");
-    background-size: cover;
-    background-position: bottom;
-    height: 650px;
+.signup:hover {
+    background-color: rgb(58, 43, 226);
+    color: white
 }
 
+.hero {
+    /* background-image: url("/images/woman-running.jpeg");
+    background-size: cover;
+    background-position: bottom; */
+    margin-top: 100px;
+    height: 850px;
+}
+.hero-row {
+    display: flex;
+    margin-left: 15%;
+  
+}
+.hero-column2 {
+    margin-left: 10%;
+}
 .title {
     font-size: 80px;
-    color: white;
+    color: black;
     font-weight: 500;
-    padding-top: 200px;
-    padding-left: 200px;
+    margin-top: 20%;
 }
 .subtitle {
-    color:white;
-    padding-left: 200px;
+    color:black;
+}
+.hero-button {
+    background-color: black;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+.hero-button:hover {
+    background-color: rgb(58, 43, 226);
+    color: white
 }
 
 .row-description {
@@ -55,14 +80,30 @@ a {
     margin-right: 10%;
 }
 .column-description {
-
     padding: 45px 30px;
     background-color: rgb(41, 40, 41);
     margin: 15px;
     color: white;
     border-radius: 10px;
 }
+.column-description:hover {
+    background-color: rgb(58, 43, 226);
+}
 .description-title {
     font-size: 32px;
 }
-
+footer {
+    background-color: rgb(41, 40, 41);
+    color: white;
+    padding: 130px 25px;
+}
+.footer-row {
+    display: flex;
+    justify-content: space-around;
+}
+.footer-column a {
+    color: white;
+}
+.footer-text {
+    text-align: center;
+}

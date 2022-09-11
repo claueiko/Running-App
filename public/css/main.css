@@ -34,3 +34,35 @@ a {
     background-position: bottom;
     height: 650px;
 }
+
+.title {
+    font-size: 80px;
+    color: white;
+    font-weight: 500;
+    padding-top: 200px;
+    padding-left: 200px;
+}
+.subtitle {
+    color:white;
+    padding-left: 200px;
+}
+
+.row-description {
+    display: flex;
+    padding: 15px 30px;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.column-description {
+
+    padding: 45px 30px;
+    background-color: rgb(41, 40, 41);
+    margin: 15px;
+    color: white;
+    border-radius: 10px;
+}
+.description-title {
+    font-size: 32px;
+}
+

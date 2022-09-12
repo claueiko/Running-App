@@ -8,50 +8,18 @@
     <div class="coach-column">
         <h2 class="name">  <%= event.nameEvent %> </h2> <br>
         <p>Email: <%= event.emailAddressEvent %> </p>
-        <p>Gender:  <%= event.dateEvent %> </p>
+        <p>Date:  <%= moment(event.dateEvent).format('LL') %> </p>
         <p>Address: <%= event.addressEvent %> </p>
 
         <p class="moment-class">Created: <%= moment(event.createdAt).fromNow() %></p>
         <p class="moment-class">Last Updated: <%= moment(event.updatedAt).fromNow() %></p>
-        <a class="edit-button" href="#">Edit Event</a>
+        <a class="edit-button" href="/event/edit?id=<%= event._id %>">Edit Event</a>
     </div>
 </div>
 <br><br><br>
 <p class="page-title">Athletes</p>
 <div class="training-plan">
-    <table class="table table-striped">
-        <tr>
-            <th> Name </th>
-            <th> Email </th>
-            <th> Gender </th>
-            <th> Age </th>
-            <th> Club </th>
-            <th> Coach </th>
-            <th> Region </th>
-            <!-- <th> Created At </th>
-            <th> Updated At </th> -->
-            <th> Edit </th>
-            <th> Delete </th>
-        </tr>
-    
-        <% athletes.forEach(function(athlete) { %>
-    
-            <tr>
-                <td><a href="/athlete/detail?id=<%= athlete._id %>"> <%= athlete.nameAthlete %> </a> </td>
-                <td><%= athlete.emailAddress %></td>
-                <td><%= athlete.gender %></td>
-                <td><%= moment().diff(athlete.dateOfBirth, 'years') %> years</td>
-                <td><%= athlete.club %></td>
-                <td><%= athlete.coach.nameCoach %></td>
-                <td><%= athlete.region.nameRegion %></td>
-                <!-- <td><%= moment(athlete.createdAt).fromNow() %></td>
-                <td><%= moment(athlete.updatedAt).fromNow() %></td> -->
-    
-                <td><a href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </td>
-                <td><a href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </td>
-            </tr>
-        <% }) %>
-    </table>
+    <p>M2M if no athletes are registered to this event, will always break</p>
 </div>
 <br><br><br>
 <p class="page-title">PERFORMANCES</p>

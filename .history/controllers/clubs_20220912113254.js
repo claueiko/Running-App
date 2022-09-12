@@ -56,7 +56,7 @@ exports.club_show_get = (req, res) => {
 
   // Find the club by that ID
   Club.findById(req.query.id)
-    .populate("athlete", "region")
+    .populate("athlete")
     .then((club) => {
       res.render("club/detail", { club, moment });
     })

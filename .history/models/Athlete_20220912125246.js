@@ -10,19 +10,19 @@ const athleteSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Club'
     }],
-    coach: {
+    coach: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Coach'
-    },
+    }],
     event: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Event'
     }],
     region: 
-        {
+        [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Region"
-        },
+        }],
 },
 {timestamps: true})
 

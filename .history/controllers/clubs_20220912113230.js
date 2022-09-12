@@ -41,7 +41,7 @@ exports.club_create_post = (req, res) => {
 
 // HTTP Get - Club index API
 exports.club_index_get = (req, res) => {
-  Club.find().populate("region")
+  Club.find()
     .then((clubs) => {
       res.render("club/index", { clubs, moment });
     })
@@ -56,7 +56,7 @@ exports.club_show_get = (req, res) => {
 
   // Find the club by that ID
   Club.findById(req.query.id)
-    .populate("athlete", "region")
+    .populate("athlete")
     .then((club) => {
       res.render("club/detail", { club, moment });
     })

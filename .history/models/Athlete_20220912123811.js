@@ -23,6 +23,7 @@ const athleteSchema = mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Region"
         },
+    ,
 },
 {timestamps: true})
 

@@ -17,13 +17,7 @@ exports.athlete_create_get = (req, res) => {
     // res.render("athlete/add");
     Coach.find()
     .then((coaches) => {
-        Region.find()
-        .then((regions) => {
-            res.render("athlete/add", { coaches, regions })
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+        res.render("athlete/add", { coaches })
     })
     .catch((err) => {
         console.log(err);
@@ -41,7 +35,13 @@ exports.athlete_create_post = (req, res) => {
 
     athlete.save()
     .then(() => {
-        // oneToMany
+        // M2MR
+        req.body.coach.forEach(coach => {
+            Coach.findById(coach, (error, coach) => {
+                coach.athlete.push(athlete);
+                coach.save();
+            })
+        });
         res.redirect("/athlete/index");
     })
     .catch((err) => {
@@ -61,7 +61,7 @@ exports.athlete_create_post = (req, res) => {
 
 // HTTP GET - Athlete Index API - We will need to write, 'club' on line 63 at the end of 'coach'.
 exports.athlete_index_get = (req, res) => {
-    Athlete.find().populate('region').populate('coach')
+    Athlete.find().populate('coach')
     .then(athletes => {
         res.render("athlete/index", {athletes: athletes, moment}) // athletes: athletes, moment: moment
     })
@@ -76,7 +76,7 @@ exports.athlete_show_get = (req, res) => {
 
     // Find the athlete by ID
     Athlete.findById(req.query.id)
-    .populate('coach', 'region')
+    .populate('coach')
     .then(athlete => {
         res.render("athlete/detail", {athlete, moment}) // athlete: athlete, moment: moment
     }) 

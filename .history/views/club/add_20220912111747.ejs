@@ -21,15 +21,9 @@
         </div><br>
     
         <!-- We may want to use a dropdown for the region similar to coach/add.js -->
-        <div class="form-group">
-            <label for="">Region</label>
-            <select name="region[]" id="" class="form-control">
-                <% regions.forEach(function (region){ %>
-                    <option value="<%= region._id %>"> <%= region.nameRegion %> </option>
-                <% })  %>
-    
-    
-            </select>
+        <div class="form-group"></div>
+        <label> Region </label>
+        <input type="text" name="region" class="form-control"/>
         </div>
     
     

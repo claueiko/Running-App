@@ -27,7 +27,7 @@
     <!-- Add forEach() -->
     <div class="form-group">
         <label> Coach </label>
-        <select name="coach" class="form-control">
+        <select name="coach[]" class="form-control">
 
             <% coaches.forEach(function(coach){ %> 
                 <option value="<%= coach._id %>"> <%= coach.nameCoach %> </option>
@@ -38,7 +38,7 @@
 
     <div class="form-group">
         <label for="">Region</label>
-        <select name="region" class="form-control">
+        <select name="region[]" id="" class="form-control">
             <% regions.forEach(function (region){ %>
                 <option value="<%= region._id %>"> <%= region.nameRegion %> </option>
             <% })  %>

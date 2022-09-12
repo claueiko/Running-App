@@ -41,7 +41,8 @@ exports.athlete_create_post = (req, res) => {
 
     athlete.save()
     .then(() => {
-        // oneToMany
+        // M2MR
+
         res.redirect("/athlete/index");
     })
     .catch((err) => {

@@ -41,7 +41,13 @@ exports.athlete_create_post = (req, res) => {
 
     athlete.save()
     .then(() => {
-        // oneToMany
+        // M2MR
+        req.body.coach.forEach(coach => {
+            Coach.findById(coach, (error, coach) => {
+                coach.athlete.push(athlete);
+                coach.save();
+            })
+        });
         res.redirect("/athlete/index");
     })
     .catch((err) => {

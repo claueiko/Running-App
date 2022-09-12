@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-// Schema for Club Model:
+// Schema for Coach Model:
 const clubSchema = mongoose.Schema(
   {
     nameClub: String,
     emailAddressClub: String,
-    websiteClub: String,
+    clubWebsite: String,
     address: String,
     athlete: [
       {
@@ -21,7 +21,7 @@ const clubSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-// Model for Club for Club Schema
+// Model for Coach for Coach Schema
 const Club = mongoose.model("Club", clubSchema);
 
 // Exports statements (to other files)

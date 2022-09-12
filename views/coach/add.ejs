@@ -1,32 +1,40 @@
-<h1> Add Coach </h1>
 
-<form action="/coach/add" method="POST">
+<section class="coach-page">
+<p class="page-title">NEW COACH</p>
+
+<form action="/coach/add" method="POST" class="form">
 
     <div class="form-group">
-        <label for="">First Name</label>
-        <input type="text" name="nameCoach" id="" class="form-control">
-    </div>
+        <label for="">Name</label>
+        <input type="text" name="nameCoach" id="" class="form-control form-field">
+    </div><br>
 
 
     <div class="form-group">
         <label for="">Email Address</label>
-        <input type="text" name="emailAddressCoach" id="" class="form-control">
-    </div>
+        <input type="text" name="emailAddressCoach" id="" class="form-control form-field">
+    </div><br>
+
+     <div class="form-group">
+        <label for="">Phone Number</label>
+        <input type="text" name="phoneNumber" id="" class="form-control form-field">
+    </div><br>
 
       <div class="form-group">
         <label for="">Region</label>
-        <input type="text" name="region" id="" class="form-control">
-    </div>
-
-
-
+        <input type="text" name="region" id="" class="form-control form-field">
+    </div><br>
 
 
     <div class="form-group">
         <label for="">Training Plan</label>
-        <input type="text" name="trainingPlan" id="" class="form-control">
-    </div>
+        <input type="text" name="trainingPlan" id="" class="form-control form-field">
+    </div><br>
 
-    <button type="sumbit" class="btn btn-primary">Create Coach</button>
+    <button type="submit" class="submit-button">Create Coach</button>
 
 </form>
+
+</section>
+
+

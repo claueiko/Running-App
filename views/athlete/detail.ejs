@@ -1,11 +1,50 @@
-<div>
+<section class="coach-page">
+        <p class="page-title">ATHLETE</p>
+
+        <div class="coach-row1">
+        <div class="coach-column-photo">
+            <img class="profile-picture"src="/images/avatar.jpeg" alt="" width="200px">
+        </div>
+        <div class="coach-column">
+            <h2 class="name">  <%= athlete.nameAthlete %> </h2> <br>
+            <p>Email: <%= athlete.emailAddress %> </p>
+            <p>Gender:  <%= athlete.gender %> </p>
+            <p>Date of birth:  <%= athlete.dateOfBirth %> </p>
+            <p>Region: <%= athlete.region %> </p>
+            <p>Club: <%= athlete.club %> </p>
+            <p>Coach: <%= athlete.nameCoach %> </p>
+            <p>Event: <%= athlete.event %> </p>
+
+            <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
+            <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
+            <a class="edit-button" href="#">Edit profile</a>
+        </div>
+        <div class="coach-column">
+            <p>Recent Activity</p>
+        </div>
+    </div>
+    <br><br><br>
+    <p class="page-title">PBS</p>
+    <div class="training-plan">
+        <p>PBs go here</p>
+    </div>
+    <br><br><br>
+    <p class="page-title">PERFORMANCES</p>
+    <div class="training-plan">
+        <p>All Performances go here</p>
+    </div>
+
+
+</section>
+
+<!-- <div>
     <div>
         <h3> <%= athlete.nameAthlete %> </h3>
     </div>
 
     <div> Email Address: <%= athlete.emailAddress %> </div>
     <div> Gender: <%= athlete.gender %> </div>
-    <div> Date of Birth: <%= athlete.dateOfBirth %> </div>
+    <div> Age: <%= athlete.dateOfBirth %> </div>
     <div> Club: <%= athlete.club %> </div>
     <div> Coach: <%= athlete.nameCoach %> </div>
     <div> Event: <%= athlete.event %> </div>
@@ -17,10 +56,10 @@
 
     <% athlete.event.forEach(function(event) { %>
 
-    <hr />
+    <hr /> -->
     <!-- <div> - I may need to delete this later.
         <div> Event: <%= event.event %></div>
         <div> Distance: <%= race.distance %></div>
-    </div> -->
+    </div>
   <% }) %> 
-</div>
+</div> -->

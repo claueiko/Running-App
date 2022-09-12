@@ -1,38 +1,42 @@
 
-<h2> <%= coach.nameCoach %></h2>
+<section class="coach-page">
+    <p class="page-title">COACH</p>
+    <div class="coach-row1">
+        <div class="coach-column-photo">
+            <img class="profile-picture"src="/images/avatar.jpeg" alt="" width="200px">
+        </div>
+        <div class="coach-column">
+            <h2 class="name"> <%= coach.nameCoach %></h2> <br>
+            <p>Email: <%= coach.emailAddressCoach %></p>
+            <p>Phone Number: <%= coach.phoneNumber %></p>
+            <p>Region: <%= coach.region %></p>
+            <p class="moment-class">Created: <%= moment(coach.createdAt).fromNow() %></p>
+            <p class="moment-class">Last Updated: <%= moment(coach.updatedAt).fromNow() %></p>
+            <a class="edit-button" href="/coach/edit?id=<%= coach._id %>">Edit profile</a>
+        </div>
+        <div class="coach-column">
+            <p>Club Information</p>
+        </div>
+    </div>
+    <br><br><br>
+    <p class="page-title">TRAINING PLANS</p>
+    <div class="training-plan">
+        <p>Training plans go here</p>
+    </div>
+    <br><br><br>
+    <p class="page-title">ATHLETES</p>
+    <div class="training-plan">
+        <p>List of Athletes go here</p>
+    </div>
+</section>
 
-<div>
-    Email: <%= coach.emailAddressCoach %>
-</div>
-
-<div>
-    Phone Number: <%= coach.phoneNumber %>
-</div>
-
-<div>
-    Region: <%= coach.region %>
-</div>
 
 
-<div>
-    Created at: <%= moment(coach.createdAt).fromNow() %>
-</div>
-<div>
-    Updated at: <%= moment(coach.updatedAt).fromNow() %>
-</div>
+
+
 <br>
 
 <!-- Clubs! -->
-<!-- <% coach.club.forEach(function(club) { %>
 
-    <div>Club: <%= club.nameClub %></div>
-
-<% }) %> -->
 
 <!-- Training Plan -->
-
-<% coach.trainingPlan.forEach(function(trainingPlan) { %>
-
-    <div>Training Plans: <%= coach.trainingPlan %></div>
-
-<% }) %>

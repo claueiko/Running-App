@@ -9,7 +9,7 @@
             <h2 class="name"> <%= coach.nameCoach %></h2> <br>
             <p>Email: <%= coach.emailAddressCoach %></p>
             <p>Phone Number: <%= coach.phoneNumber %></p>
-            <p>Region: <%= coach.region %></p>
+            <p>Region: <%= coach.region.nameRegion %></p>
             <p class="moment-class">Created: <%= moment(coach.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(coach.updatedAt).fromNow() %></p>
             <a class="edit-button" href="/coach/edit?id=<%= coach._id %>">Edit profile</a>

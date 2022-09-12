@@ -6,12 +6,12 @@ const coachSchema = mongoose.Schema(
     nameCoach: String,
     emailAddressCoach: String,
     phoneNumber: String,
-    region: [
+    region: 
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Region"
         },
-    ],
+    
     club: [
       {
         type: mongoose.Schema.Types.ObjectId,

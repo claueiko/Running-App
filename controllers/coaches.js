@@ -44,7 +44,7 @@ exports.coach_create_post = (req, res) => {
 // HTTP Get - Coach index API
 exports.coach_index_get = (req, res) => {
   Coach.find().populate("region")
-    .then((coaches) => {
+    .then(coaches => {
       res.render("coach/index", { coaches, moment });
     })
     .catch((err) => {
@@ -58,8 +58,8 @@ exports.coach_show_get = (req, res) => {
 
   // Find the coach by that ID
   Coach.findById(req.query.id)
-    .populate("athlete", "region")
-    .then((coach) => {
+    .populate("athlete").populate("region")
+    .then(coach => {
       res.render("coach/detail", { coach, moment });
     })
     .catch((err) => {

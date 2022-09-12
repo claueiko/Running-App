@@ -1,5 +1,6 @@
 // Require Express
-const express = require('express')
+const express = require('express');
+
 
 // Require and initialise dotenv
 
@@ -12,6 +13,7 @@ const PORT = 4008;
 
 // Initialise Express application
 const app = express();
+
 
 // Using Connect Flash
 // app.use(flash())

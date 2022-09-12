@@ -25,7 +25,8 @@
         <td> <a href="/coach/detail?id=<%= coach._id %>"> <h3><%= coach.nameCoach %></h3> </a></td>
         <td> <%= coach.emailAddressCoach %></td>
         <td> <%= coach.phoneNumber %></td>
-        <td> <%= coach.region %></td>
+        <td> <%= coach.region.nameRegion %></td>
+       
         
         <!-- <td> <%= moment(coach.createdAt).fromNow() %></td>
         <td> <%= moment(coach.updatedAt).fromNow() %></td> -->

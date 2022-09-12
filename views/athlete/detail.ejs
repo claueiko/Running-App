@@ -9,15 +9,15 @@
             <h2 class="name">  <%= athlete.nameAthlete %> </h2> <br>
             <p>Email: <%= athlete.emailAddress %> </p>
             <p>Gender:  <%= athlete.gender %> </p>
-            <p>Age:  athlete.dateOfBirth %> </p> </p>
-            <p>Region: <%= athlete.region %> </p>
+            <p>Age: <%= moment().diff(athlete.dateOfBirth, 'years') %> years old </p> </p>
+            <p>Region: <%= athlete.region.nameRegion %> </p>
             <p>Club: <%= athlete.club %> </p>
-            <p>Coach: <%= athlete.nameCoach %> </p>
+            <p>Coach: <%= athlete.coach.nameCoach %> </p>
             <p>Event: <%= athlete.event %> </p>
 
             <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
-            <a class="edit-button" href="#">Edit profile</a>
+            <a class="edit-button" href="/athlete/edit?id=<%= athlete.id %>">Edit profile</a>
         </div>
         <div class="coach-column">
             <p>Recent Activity</p>

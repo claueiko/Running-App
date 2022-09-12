@@ -13,8 +13,6 @@
             <p>Region: <%= athlete.region.nameRegion %> </p>
             <p>Club: <%= athlete.club %> </p>
             <p>Coach: <%= athlete.coach.nameCoach %> </p>
-            <p>Event: <%= athlete.event %> </p>
-
             <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
             <a class="edit-button" href="/athlete/edit?id=<%= athlete.id %>">Edit profile</a>

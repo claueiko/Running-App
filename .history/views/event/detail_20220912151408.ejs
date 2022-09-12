@@ -11,9 +11,15 @@
         <p>Gender:  <%= event.dateEvent %> </p>
         <p>Address: <%= event.addressEvent %> </p>
 
+        <p>Coach: <%= event.nameCoach %> </p>
+        <p>Event: <%= event.event %> </p>
+
         <p class="moment-class">Created: <%= moment(event.createdAt).fromNow() %></p>
         <p class="moment-class">Last Updated: <%= moment(event.updatedAt).fromNow() %></p>
-        <a class="edit-button" href="#">Edit Event</a>
+        <a class="edit-button" href="#">Edit profile</a>
+    </div>
+    <div class="coach-column">
+        <p>Recent Activity</p>
     </div>
 </div>
 <br><br><br>
@@ -61,3 +67,30 @@
 
 
 </section>
+
+<!-- <div>
+<div>
+    <h3> <%= event.nameEvent %> </h3>
+</div>
+
+<div> Email Address: <%= event.emailAddress %> </div>
+<div> Gender: <%= event.gender %> </div>
+<div> Age: <%= event.dateOfBirth %> </div>
+<div> Club: <%= event.club %> </div>
+<div> Coach: <%= event.nameCoach %> </div>
+<div> Event: <%= event.event %> </div>
+<div> Event: <%= event.region %> </div>
+<div> Created At: <%= moment(event.createdAt).fromNow() %> </div>
+
+<br>
+
+
+<% event.event.forEach(function(event) { %>
+
+<hr /> -->
+<!-- <div> - I may need to delete this later.
+    <div> Event: <%= event.event %></div>
+    <div> Distance: <%= race.distance %></div>
+</div>
+<% }) %> 
+</div> -->

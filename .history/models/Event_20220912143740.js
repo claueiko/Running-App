@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const eventSchema = mongoose.Schema({
     nameEvent: String,
     emailAddressEvent: String,
-    dateEvent: Date,
-    addressEvent: String,
+    gender: String,
+    dateOfBirth: Date,
     // photo: Insert photo later
     athlete: [
         {
@@ -20,6 +20,6 @@ const eventSchema = mongoose.Schema({
 },
 {timestamps: true})
 
-const Event = mongoose.model("Event", eventSchema);
+const Athlete = mongoose.model("Athlete", athleteSchema);
 
-module.exports = {Event}
+module.exports = {Athlete}

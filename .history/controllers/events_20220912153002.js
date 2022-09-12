@@ -65,7 +65,7 @@ exports.event_create_post = (req, res) => {
 
 // HTTP GET - Event Index API - We will need to write, 'club' on line 63 at the end of 'coach'.
 exports.event_index_get = (req, res) => {
-    Event.find().populate('region').populate('coach').populate('athlete')
+    Event.find().populate('region').populate('coach')
     .then(events => {
         res.render("event/index", {events: events, moment}) // events: events, moment: moment
     })
@@ -80,7 +80,7 @@ exports.event_show_get = (req, res) => {
 
     // Find the event by ID
     Event.findById(req.query.id)
-    .populate('coach', 'region', 'athlete')
+    .populate('coach', 'region')
     .then(event => {
         res.render("event/detail", {event, moment}) // event: event, moment: moment
     }) 

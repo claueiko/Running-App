@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const eventSchema = mongoose.Schema({
     nameEvent: String,
     emailAddressEvent: String,
-    dateEvent: Date,
-    addressEvent: String,
+    Date: Date,
+    Address: String,
     // photo: Insert photo later
     athlete: [
         {

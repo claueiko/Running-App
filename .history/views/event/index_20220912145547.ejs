@@ -16,12 +16,14 @@
         <% events.forEach(function(event) { %>
     
             <tr>
-                <td><a href="/event/detail?id=<%= event._id %>"> <%= event.nameEvent %> </a> </td>
+                <td><a href="/event/detail?id=<%= event._id %>"> <%= event.nameevent %> </a> </td>
                 <td><%= event.emailAddressEvent %></td>
-                <td><%= event.dateEvent %></td>
+                <td><%= event.gender %></td>
+                <td><%= event.dateEvent</td>
                 <td><%= event.addressEvent %></td>
-                <td><%= event.athlete.nameAthlete %></td>
                 <td><%= event.region.nameRegion %></td>
+                <!-- <td><%= moment(event.createdAt).fromNow() %></td>
+                <td><%= moment(event.updatedAt).fromNow() %></td> -->
     
                 <td><a href="/event/edit?id=<%= event.id %>"> Edit </a> </td>
                 <td><a href="/event/delete?id=<%= event.id %>"> Delete </a> </td>

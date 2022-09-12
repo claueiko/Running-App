@@ -2,7 +2,7 @@
 <section class="coach-page">
 <p class="page-title">NEW COACH</p>
 
-<form action="/coach/add" method="POST" class="form">
+<form action="/coach/add" method="POST" class="form" >
 
     <div class="form-group">
         <label for="">Name</label>
@@ -24,17 +24,15 @@
     <!-- Get Regions from Database -->
     <div class="form-group">
         <label for="">Region</label>
-        <select name="region" id="" class="form-control form-field">
+        <select name="region" class="form-control form-field">
             <% regions.forEach(function (region){ %>
                 <option value="<%= region._id %>"> <%= region.nameRegion %> </option>
             <% })  %>
-
-
         </select>
-    </div> <br>
+    </div><br>
 
     <!-- IMAGE UPLOAD -->
-    <!-- <input type="file" class="" id="avatar" name="avatar"> -->
+    <!-- <input type="file" class="form-control-file" id="image" name="image"><br> -->
 
 
     <!-- DROPDOWN TO ADD REGION! -->

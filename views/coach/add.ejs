@@ -20,8 +20,22 @@
         <input type="text" name="phoneNumber" id="" class="form-control form-field">
     </div><br>
 
+
+    <!-- Get Regions from Database -->
+    <div class="form-group">
+        <label for="">Region</label>
+        <select name="region[]" id="" class="form-control">
+            <% regions.forEach(function (region){ %>
+                <option value="<%= region._id %>"> <%= region.nameRegion %> </option>
+            <% })  %>
+
+
+        </select>
+    </div>
+
+
     <!-- DROPDOWN TO ADD REGION! -->
-     <div class="form-group">
+     <!-- <div class="form-group">
         <label for="">Region</label>
         <select name="region" id="" class="form-control form-field">
             <option value="">Choose your region</option>
@@ -37,7 +51,8 @@
 
         </select>
         
-    </div><br>
+    </div> -->
+    <br>
 
 
 <!-- 

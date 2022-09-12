@@ -6,7 +6,7 @@
         <th> Name </th>
         <th> Email </th>
         <th> Gender </th>
-        <th> Age </th>
+        <th> Date of Birth </th>
         <th> Club </th>
         <th> Coach </th>
         <th> Event </th>
@@ -23,7 +23,7 @@
             <td><a href="/athlete/detail?id=<%= athlete._id %>"> <%= athlete.nameAthlete %> </a> </td>
             <td><%= athlete.emailAddress %></td>
             <td><%= athlete.gender %></td>
-            <td><%= moment().diff(athlete.dateOfBirth, 'years') %> years</td>
+            <td><%= moment(athlete.dateOfBirth, 'years').diff %></td>
             <td><%= athlete.club %></td>
             <td><%= athlete.nameCoach %></td>
             <td><%= athlete.event %></td>

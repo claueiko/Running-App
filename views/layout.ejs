@@ -17,62 +17,24 @@
 
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-light main-menu">
+  <a class="navbar-brand logo" href="/">CORRIDA</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
+  <div class="collapse navbar-collapse menu-right" id="navbarNavDropdown">
+    <a class="menu-nav" href="/athlete/index"> ATHLETES </a>
+            <a class="menu-nav" href="/coach/index"> COACHES </a>
+            <a class="menu-nav" href="/club/index"> CLUBS </a>
+            <a class="menu-nav" href="/event/index"> EVENTS </a>
+            <a href="" class="menu-nav signin">SIGN IN</a>
+            <a href="" class="menu-nav signup">SIGN UP</a>
+
   </div>
 </nav>
 
 
 
-
-
-
-
-    <!-- my nav -->
-    <nav class="navbar navbar-expand-md" id="navbarNav">
-    <div class="container-fluid">
-        <h1 ><a class="logo"  href="/"> CORRIDA </a></h1>
-   
-        <div class="collapse navbar-collapse">
-            <a class="menu-nav" href="/athlete/index"> ATHLETES </a>
-            <a class="menu-nav" href="/coach/index"> COACHES </a>
-            <a class="menu-nav" href="/club/index"> CLUBS </a>
-            <a class="menu-nav" href="/event/index"> EVENTS </a>
-            <a class="menu-nav" href="/athlete/add" class="">Add Athletes</a>
-            <a class="menu-nav" href="/coach/add" class="">Add Coaches</a>
-            <a class="menu-nav" href="/club/add" class="">Add Clubs</a>
-            <a class="menu-nav" href="/event/add" class="">Add Events</a>
-            <a href="" class="menu-nav signin">SIGN IN</a>
-            <a href="" class="menu-nav signup">SIGN UP</a>
-
-        </div>
-         </div>
-    </nav>  
     
 
     <%- body %>
@@ -84,12 +46,12 @@
         </div>
         <div class="footer-column">
             <a href="/region/add" class="">Add Region</a> <br>
-            <a href="#">Link 2</a> <br>
-            <a href="#">Link 3</a>
+            <a href="/athlete/add">Add Athlete</a> <br>
+            <a href="/coach/add">Add Coach </a>
         </div>
         <div class="footer-column">
-            <a href="#">Link 4</a><br>
-            <a href="#">Link 5</a><br>
+            <a href="/club/add">Add Clubs</a><br>
+            <a href="/event/add">Add Events</a><br>
             <a href="#">Link 6</a>
         </div>
         <div class="footer-column">

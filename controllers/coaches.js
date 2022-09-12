@@ -1,6 +1,8 @@
 // Require Coach Model
 const { Athlete } = require("../models/Athlete");
 const { Coach } = require("../models/Coach");
+const { Region } = require("../models/Region");
+
 // Api to require moment library
 const moment = require("moment");
 
@@ -11,7 +13,14 @@ const moment = require("moment");
 // Create
 //HTTP GET - Load coachFrom
 exports.coach_create_get = (req, res) => {
-  res.render("coach/add");
+  Region.find()
+  .then((regions) => {
+res.render("coach/add", { regions });
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  
 };
 
 //HTTP POST - Coach
@@ -34,7 +43,7 @@ exports.coach_create_post = (req, res) => {
 
 // HTTP Get - Coach index API
 exports.coach_index_get = (req, res) => {
-  Coach.find()
+  Coach.find().populate("region")
     .then((coaches) => {
       res.render("coach/index", { coaches, moment });
     })
@@ -49,7 +58,7 @@ exports.coach_show_get = (req, res) => {
 
   // Find the coach by that ID
   Coach.findById(req.query.id)
-    .populate("athlete")
+    .populate("athlete", "region")
     .then((coach) => {
       res.render("coach/detail", { coach, moment });
     })

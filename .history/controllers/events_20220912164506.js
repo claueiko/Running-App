@@ -16,13 +16,18 @@ const moment = require('moment');
 // HTTP GET - Load Event From
 exports.event_create_get = (req, res) => {
     // res.render("event/add");
+
         Region.find()
         .then((regions) => {
-                res.render("event/add", { regions })
+            Athlete.find()
+            .then((athletes) => {
+                res.render("event/add", { coaches, regions, athletes })
+            })
         })
         .catch((err) => {
             console.log(err);
         })
+    
     .catch((err) => {
         console.log(err);
     })
@@ -59,7 +64,7 @@ exports.event_create_post = (req, res) => {
 
 // HTTP GET - Event Index API - We will need to write, 'club' on line 63 at the end of 'coach'.
 exports.event_index_get = (req, res) => {
-    Event.find().populate('region')
+    Event.find().populate('region').populate('athlete')
     .then(events => {
         res.render("event/index", {events: events, moment}) // events: events, moment: moment
     })

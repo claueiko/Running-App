@@ -11,6 +11,7 @@ const clubSchema = mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "Region"
         },
+    ,
     athlete: [
       {
         type: mongoose.Schema.Types.ObjectId,

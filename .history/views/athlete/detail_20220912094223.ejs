@@ -9,7 +9,8 @@
             <h2 class="name">  <%= athlete.nameAthlete %> </h2> <br>
             <p>Email: <%= athlete.emailAddress %> </p>
             <p>Gender:  <%= athlete.gender %> </p>
-            <p>Age:  athlete.dateOfBirth %> </p> </p>
+            <p>Date of birth:  <%= moment(athlete.dateOfBirth, 'years').diff %> </p>
+                <!-- athlete.dateOfBirth %> </p> -->
             <p>Region: <%= athlete.region %> </p>
             <p>Club: <%= athlete.club %> </p>
             <p>Coach: <%= athlete.nameCoach %> </p>

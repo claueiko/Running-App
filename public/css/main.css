@@ -184,3 +184,9 @@ th {
     font-size: 22px;
     margin-left: 50px;
 }
+.club-column {
+    width: 65%;
+    padding: 40px 40px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+}

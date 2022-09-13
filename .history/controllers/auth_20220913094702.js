@@ -6,7 +6,7 @@ let passport = require("../helper/ppConfig");
 
 // Require bcrypt for hasing
 const bcrypt = require('bcrypt');
-const salt = 10;
+const salt = 5;
 
 // APIs for user registration and authentication here - see models User.js
 

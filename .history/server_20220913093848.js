@@ -3,9 +3,7 @@ const express = require('express');
 
 
 // Require and initialise dotenv
-require('dotenv').config();
 
-const flash = require ('connect-flash');
 
 // Require Mongoose
 const mongoose = require('mongoose')
@@ -15,6 +13,7 @@ const PORT = 4008;
 
 // Initialise Express application
 const app = express();
+
 
 // Using Connect Flash
 app.use(flash())
@@ -77,7 +76,7 @@ app.set("view engine", "ejs");
 
 // Look into views folder for layouts page
 
-mongoose.connect(process.env.MongoDBURL, 
+mongoose.connect("mongodb://localhost:27017/corrida", 
     { useNewURLParser: true, useUnifiedTopology: true},
     () => {
         console.log("MongoDB Connected :)")

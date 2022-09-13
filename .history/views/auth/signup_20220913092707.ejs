@@ -1,6 +1,11 @@
-<h1> SIGN IN </h1>
+<h1> Create an Athlete account </h1>
 
-<form method="POST" action="/auth/signin">
+<form method="POST" action="/auth/signup">
+
+    <div class="form-group">
+        <label> Name </label>
+        <input type="text" name="nameAthlete" class="form-control" />
+    </div>
 
     <div class="form-group">
         <label> Email Address </label>
@@ -15,7 +20,7 @@
     <br>
 
     <div>
-        <button type="submit" class="btn btn-primary"> SIGN IN </button>
+        <button type="submit" class="btn btn-primary"> Submit </button>
     </div>
 
 </form>

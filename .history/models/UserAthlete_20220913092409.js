@@ -33,4 +33,4 @@ userAthleteSchema.methods.verifyPassword = function(password) {
 
 const UserAthlete = mongoose.model("UserAthlete", userAthleteSchema);
 
-module.exports = UserAthlete;
+module.exports = User;

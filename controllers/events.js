@@ -1,7 +1,7 @@
 // Require Models
 const { Event } = require("../models/Event");
 const { Athlete } = require("../models/Athlete");
-const { Coach } = require("../models/Coach");
+
 const { Region } = require("../models/Region");
 // const Event = require("../models/Event").Event;
 
@@ -16,17 +16,22 @@ const moment = require('moment');
 // HTTP GET - Load Event From
 exports.event_create_get = (req, res) => {
     // res.render("event/add");
-        Region.find()
-        .then((regions) => {
-                res.render("event/add", { regions })
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    .catch((err) => {
-        console.log(err);
-    })
-}
+            Region.find()
+            .then(regions => {
+                Athlete.find()
+                .then(athletes => {
+                    res.render("event/add", { regions, athletes })
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        }
+
+
 
 // HTTP POST - Event
 exports.event_create_post = (req, res) => {
@@ -59,7 +64,7 @@ exports.event_create_post = (req, res) => {
 
 // HTTP GET - Event Index API - We will need to write, 'club' on line 63 at the end of 'coach'.
 exports.event_index_get = (req, res) => {
-    Event.find().populate('region')
+    Event.find().populate('region').populate('athlete')
     .then(events => {
         res.render("event/index", {events: events, moment}) // events: events, moment: moment
     })
@@ -74,7 +79,7 @@ exports.event_show_get = (req, res) => {
 
     // Find the event by ID
     Event.findById(req.query.id)
-    .populate('region', 'athlete')
+    .populate('region').populate('athlete')
     .then(event => {
         res.render("event/detail", {event, moment}) // event: event, moment: moment
     }) 

@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 
 // Schema for Coach Model:

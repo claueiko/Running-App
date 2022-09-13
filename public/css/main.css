@@ -20,10 +20,11 @@ a:hover {
 /* .navbar {
     display: flex;
 } */
-.navbar {
-    padding: 20px 20px;
-    
-    
+.main-menu {
+    padding: 20px 20px 0 80px;
+}
+.menu-right {
+    margin-left: 35%;
 }
 .menu-nav {
     margin-left: 25px;

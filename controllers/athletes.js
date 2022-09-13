@@ -76,7 +76,7 @@ exports.athlete_show_get = (req, res) => {
 
     // Find the athlete by ID
     Athlete.findById(req.query.id)
-    .populate('coach', 'region')
+    .populate('coach').populate('region')
     .then(athlete => {
         res.render("athlete/detail", {athlete, moment}) // athlete: athlete, moment: moment
     }) 

@@ -6,7 +6,12 @@ const { Region } = require("../models/Region");
 // Api to require moment library
 const moment = require("moment");
 
-// APIs for coachs
+
+
+
+
+
+// APIs for coaches
 
 //CRUD
 
@@ -24,11 +29,11 @@ res.render("coach/add", { regions });
 };
 
 //HTTP POST - Coach
-exports.coach_create_post = (req, res) => {
-  // console.log(req.body);
-  // res.send("POST WORKS");
 
+exports.coach_create_post = (req, res) => {
+  
   // Saving the data into the database
+
   let coach = new Coach(req.body);
   coach
     .save()

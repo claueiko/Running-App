@@ -18,7 +18,7 @@
             <tr>
                 <td><a href="/event/detail?id=<%= event._id %>"> <%= event.nameEvent %> </a> </td>
                 <td><%= event.emailAddressEvent %></td>
-                <td><%= event.dateEvent %></td>
+                <td><%= moment(event.dateEvent).format('LL') %></td>
                 <td><%= event.addressEvent %></td>
                 <td><%= event.region.nameRegion %></td>
     

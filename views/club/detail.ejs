@@ -1,30 +1,30 @@
 
-<section class="club-page">
+<section class="coach-page">
     <p class="page-title">CLUB</p>
-    <div class="club-row1">
-        <div class="club-column-photo">
+    <div class="coach-row1">
+        <div class="coach-column-photo">
             <img class="profile-picture"src="/images/avatar.jpeg" alt="" width="200px">
         </div>
-        <div class="club-column">
+        <div class="coach-column">
             <h2 class="name"> <%= club.nameClub %></h2> <br>
             <p>Email: <%= club.emailAddressClub %></p>
             <p>Club Website: <%= club.websiteClub %></p>
-            <p>Region: <%= club.region %> </p>
-            <p class="moment-class">Founded: <%= moment(club.createdAt).fromNow() %></p>
+            <p>Region: <%= club.region.nameRegion %> </p>
+            <p class="moment-class">Added: <%= moment(club.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(club.updatedAt).fromNow() %></p>
             <a class="edit-button" href="/club/edit?id=<%= club._id %>">Edit profile</a>
         </div>
-        <div class="club-column">
-            <p>Club Information</p>
+        <div class="coach-column">
+            <h2>Club Information</h2>
         </div>
     </div>
     <br><br><br>
-    <p class="page-title">TRAINING PLANS</p>
+    <p class="page-title">OUR COACHES</p>
     <div class="training-plan">
-        <p>Training plans go here</p>
+        <p>Coaches go here</p>
     </div>
     <br><br><br>
-    <p class="page-title">ATHLETES</p>
+    <p class="page-title">OUR ATHLETES</p>
     <div class="training-plan">
         <p>List of Athletes go here</p>
     </div>

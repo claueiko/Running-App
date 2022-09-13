@@ -7,6 +7,10 @@ const coachSchema = mongoose.Schema(
     nameCoach: String,
     emailAddressCoach: String,
     phoneNumber: String,
+    //image
+    image: {
+        type: String,
+    },
     region: 
         {
             type: mongoose.Schema.Types.ObjectId,

@@ -7,10 +7,6 @@ const { Region } = require("../models/Region");
 const moment = require("moment");
 
 
-
-
-
-
 // APIs for coaches
 
 //CRUD
@@ -28,13 +24,22 @@ res.render("coach/add", { regions });
   
 };
 
+
 //HTTP POST - Coach
 
 exports.coach_create_post = (req, res) => {
   
   // Saving the data into the database
 
+  //images to delete
+  // let response = '<a href="/">Home</a><br>';
+  // response += "Files uploaded successfully.<br>";
+  // response += `<img src="${req.file.coach}" /><br>`;
+  // return res.send(response)
+  console.log(req.file);
+  let imagePath = '/uploads/' + req.file.filename;
   let coach = new Coach(req.body);
+  coach.image = imagePath;
   coach
     .save()
     .then(() => {
@@ -56,6 +61,14 @@ exports.coach_index_get = (req, res) => {
       console.log(err);
     });
 };
+
+// coaches live search:
+
+//Live Search
+exports.coach_indexSearch_post = (req, res) => {
+    let payload = req.body.payload.trim();
+    console.log(payload)
+} 
 
 // HTTP Get - Coach by Id
 exports.coach_show_get = (req, res) => {

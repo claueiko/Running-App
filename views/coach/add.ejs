@@ -2,7 +2,7 @@
 <section class="coach-page">
 <p class="page-title">NEW COACH</p>
 
-<form action="/coach/add" method="POST" class="form" >
+<form action="/coach/add" method="POST" class="form" enctype="multipart/form-data">
 
     <div class="form-group">
         <label for="">Name</label>
@@ -32,7 +32,8 @@
     </div><br>
 
     <!-- IMAGE UPLOAD -->
-    <!-- <input type="file" class="form-control-file" id="image" name="image"><br> -->
+    <label for="">Profile picture</label><br>
+    <input type="file" class="form-control-file form-field" id="image" name="image"><br>
 
 
     <!-- DROPDOWN TO ADD REGION! -->
@@ -68,7 +69,7 @@
         <input type="text" name="trainingPlan" id="" class="form-control form-field">
     </div><br> -->
 
-    <button type="submit" class="submit-button">Create Coach</button>
+    <input type="submit" class="submit-button" name="Create Coach"></input>
 
 </form>
 

@@ -37,18 +37,25 @@ exports.athlete_create_post = (req, res) => {
 
     // Saving the data into the Database
 
-    let athlete = new Athlete(req.body);
-
-    athlete.save()
+    //Images 
+ 
+  console.log(req.file);
+  let imagePath = '/uploads/' + req.file.filename;
+  let athlete = new Athlete(req.body);
+  athlete.image = imagePath;
+  athlete
+    .save()
     .then(() => {
-        // oneToMany
-        res.redirect("/athlete/index");
+      res.redirect("/athlete/index");
     })
     .catch((err) => {
-        console.log(err);
-        res.send("Please try again later!!!");
-    })
+      console.log(err);
+      res.send("Please write again later.");
+    });
+};
 
+
+    
     // Embedded Design Model
     // Coach.findById(req.body.coache, 
     //     (error, coache) => {
@@ -56,7 +63,7 @@ exports.athlete_create_post = (req, res) => {
     //         coache.save();
     //         res.redirect("/coache/index");
     // })
-}
+
 
 
 // HTTP GET - Athlete Index API - We will need to write, 'club' on line 63 at the end of 'coach'.

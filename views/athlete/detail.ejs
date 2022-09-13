@@ -28,19 +28,21 @@
         <table class="table table-striped">
             <tr>
                 <th>Activity</th>
+                <th>Distance in KM</th>
                 <th>Time</th>
                 <th>Location</th>
                 <th>Date</th>
                 <th></th>
             </tr>
-
+            
             <tr>
-                <form method="POST" action="/athlete/add">
-                <td><input type="text" name="nameActivity" id=""></td>
-                <td><input type="text" name="timeActivity" id=""></td>
-                <td><input type="text" name="locationActivity" id=""></td>
-                <td><input type="date" name="dateActivity" id=""></td>
-                <td><button type="submit"  id="">Submit</button></td>
+                <form method="POST" action="/athlete/add"> 
+                <td><input class="performance-field" type="text" name="nameActivity" id=""></td>
+                <td><input class="performance-field" type="text" name="distanceActivity" id=""></td>
+                <td><input class="performance-field" type="text" name="timeActivity" id=""></td>
+                <td><input class="performance-field" type="text" name="locationActivity" id=""></td>
+                <td><input class="performance-field" type="date" name="dateActivity" id=""></td>
+                <td><button class="performance-submit" type="submit"  id="">Add</button></td>
                     
                 </form>
             </tr>

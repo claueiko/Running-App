@@ -18,7 +18,13 @@ const userAthleteSchema = mongoose.Schema({
         type: String,
         required: true,
         minlength: [6, "Your password is too weak... send it on some hill sessions a come back with more characters"]
-    }
+    },
+    athlete: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Athlete",
+        },
+      ],
 },
 {
     timestamps: true

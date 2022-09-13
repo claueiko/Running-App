@@ -50,11 +50,11 @@ passport.use(new LocalStrategy({
     usernameField: "emailAddressCoach", 
     passwordField: "passwordCoach"
 },
-    function(emailAddressCoach, passwordCoach, done) {
+    function(emailAddress, password, done) {
       UserCoach.findOne({ emailAddressCoach: emailAddressCoach }, function (err, userCoach) {
         if (err) { return done(err); }
         if (!userCoach) { return done(null, false); }
-        if (!userCoach.verifyPassword(passwordCoach)) { return done(null, false); }
+        if (!userCoach.verifyPassword(password)) { return done(null, false); }
         return done(null, userCoach);
       });
     }

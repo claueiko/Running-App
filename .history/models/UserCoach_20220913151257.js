@@ -24,7 +24,7 @@ const userCoachSchema = mongoose.Schema({
     timestamps: true
 });
 
-userCoachSchema.methods.verifyPassword = function(password) {
+userAthleteSchema.methods.verifyPassword = function(password) {
     console.log("password from User: " + password);
     console.log("password from Database: " + this.password)
     return bcrypt.compareSync(password, this.password);

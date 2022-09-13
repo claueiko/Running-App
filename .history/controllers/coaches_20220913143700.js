@@ -100,16 +100,15 @@ exports.coach_delete_get = (req, res) => {
 exports.coach_edit_get = (req, res) => {
   Coach.findById(req.query.id)
     .then((coach) => {
-      Region.find()
-      .then((regions) => {
-        res.render("coach/edit", { coach, regions })
-      })
+      Region.findById(req.query.id)
+      .then((region) => {
+        res.render("coach/edit", { coach, region })
+      });
+    })
     .catch((err) => {
       console.log(err);
-    })
-  })
-  }
-
+    });
+};
 
 // UPDATE HTTP PUT OR POST
 exports.coach_update_put = (req, res) => {

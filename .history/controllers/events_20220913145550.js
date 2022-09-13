@@ -118,6 +118,7 @@ exports.event_edit_get = (req, res) => {
     })
 }
 
+
 // HTTP PUT - Event Update
 exports.event_update_put = (req, res) => {
     console.log(req.body.id);

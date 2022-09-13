@@ -18,13 +18,9 @@
         <input type="text" name="phoneNumber" value="<%= coach.phoneNumber %>" class="form-control form-field">
     </div><br>
 
-    <div class="form-group">
+     <div class="form-group">
         <label for="">Region</label>
-        <select name="region" class="form-control form-field">
-            <% regions.forEach(function (region){ %>
-                <option value="<%= region._id %>"> <%= region.nameRegion %> </option>
-            <% })  %>
-        </select>
+        <input type="text" name="region" value="<%= coach.region.nameRegion %>" class="form-control form-field">
     </div><br>
 
 

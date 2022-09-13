@@ -14,7 +14,7 @@ const userAthleteSchema = mongoose.Schema({
         lowercase: true,
         unique: true
     },
-    password: {
+    passwordAthlete: {
         type: String,
         required: true,
         minlength: [6, "Your password is too weak... send it on some hill sessions a come back with more characters"]

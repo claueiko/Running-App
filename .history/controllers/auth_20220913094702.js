@@ -6,7 +6,7 @@ let passport = require("../helper/ppConfig");
 
 // Require bcrypt for hasing
 const bcrypt = require('bcrypt');
-const salt = 10;
+const salt = 5;
 
 // APIs for user registration and authentication here - see models User.js
 
@@ -37,7 +37,6 @@ exports.auth_signup_post = (req, res) => {
 exports.auth_signin_get = (req, res) => {
     res.render("auth/signin");
 }
-
 // HTTP POST - Signin Route - To post the data for authentication
 exports.auth_signin_post = passport.authenticate('local', {
     successRedirect: "/",

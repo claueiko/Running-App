@@ -2,35 +2,27 @@
 const express = require('express');
 
 
-
 // Require and initialise dotenv
-require('dotenv').config();
 
-const flash = require ('connect-flash');
 
 // Require Mongoose
 const mongoose = require('mongoose')
 
 // PORT Configuration
-const PORT = process.env.PORT;
+const PORT = 4008;
 
 // Initialise Express application
 const app = express();
 
+
 // Using Connect Flash
-app.use(flash())
+// app.use(flash())
 
 // looking for static files in Public folder
 app.use(express.static("public"));
 
-
-
 // Require express-ejs-layouts dependancy
 const expressLayouts = require('express-ejs-layouts');
-
-
-//image
-// const imageRouter = require('./routes/images');
 
 //  Import Routes below
 const indexRouter = require('./routes/index');
@@ -41,13 +33,11 @@ const clubRouter = require('./routes/clubs');
 const eventRouter = require('./routes/events');
 const authRouter = require('./routes/auth');
 
-
  
 app.use(expressLayouts);
 
 let session = require('express-session');
 let passport = require ('./helper/ppConfig')
-
 
 app.use(session({
     secret: process.env.SECRET,
@@ -59,7 +49,6 @@ app.use(session({
 // Initialze passport and passport session
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 // Sharing the information with all pages
 app.use(function(req, res, next){
@@ -84,9 +73,10 @@ app.set("view engine", "ejs");
 
 
 
+
 // Look into views folder for layouts page
 
-mongoose.connect(process.env.MongoDBURL, 
+mongoose.connect("mongodb://localhost:27017/corrida", 
     { useNewURLParser: true, useUnifiedTopology: true},
     () => {
         console.log("MongoDB Connected :)")
@@ -96,4 +86,3 @@ mongoose.connect(process.env.MongoDBURL,
 app.listen(PORT, () => {
     console.log(`Corrida is running on PORT ${PORT}`);
 });
- 

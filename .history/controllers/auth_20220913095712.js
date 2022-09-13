@@ -37,7 +37,6 @@ exports.auth_signup_post = (req, res) => {
 exports.auth_signin_get = (req, res) => {
     res.render("auth/signin");
 }
-
 // HTTP POST - Signin Route - To post the data for authentication
 exports.auth_signin_post = passport.authenticate('local', {
     successRedirect: "/",

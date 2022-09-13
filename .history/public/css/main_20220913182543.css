@@ -9,11 +9,9 @@ a {
     text-decoration: none;
     font-size: 22px;
 }
-
 a:hover {
     color: rgb(58, 43, 226);
 }
-
 
 .logo {
     font-size: 60px;
@@ -114,7 +112,6 @@ footer {
 }
 .footer-text {
     text-align: center;
-    color: white
 }
 
 .page-title {

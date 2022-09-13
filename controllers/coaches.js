@@ -14,12 +14,20 @@ const moment = require("moment");
 // Create
 //HTTP GET - Load coachFrom
 exports.coach_create_get = (req, res) => {
-  Region.find()
-  .then((regions) => {
-res.render("coach/add", { regions });
+  //Athletes?
+  Athlete.find()
+  .then((athletes) => {
+    Region.find()
+      .then((regions) => {
+        res.render("coach/add", { regions ,athletes });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
   })
   .catch((err) => {
-    console.log(err);
+    console.log(err)
   })
   
 };
@@ -32,9 +40,10 @@ exports.coach_create_post = (req, res) => {
   // Saving the data into the database
 
  //Images 
- 
+
   console.log(req.file);
   let imagePath = '/uploads/' + req.file.filename;
+  
   let coach = new Coach(req.body);
   coach.image = imagePath;
   coach
@@ -48,9 +57,10 @@ exports.coach_create_post = (req, res) => {
     });
 };
 
+
 // HTTP Get - Coach index API
 exports.coach_index_get = (req, res) => {
-  Coach.find().populate("region")
+  Coach.find().populate("region").populate("athlete")
     .then(coaches => {
       res.render("coach/index", { coaches, moment });
     })
@@ -59,18 +69,12 @@ exports.coach_index_get = (req, res) => {
     });
 };
 
-// coaches live search:
-
-//Live Search
-exports.coach_indexSearch_post = (req, res) => {
-    let payload = req.body.payload.trim();
-    console.log(payload)
-} 
 
 // HTTP Get - Coach by Id
 exports.coach_show_get = (req, res) => {
-  console.log(req.query.id);
 
+  console.log(req.query.id);
+  
   // Find the coach by that ID
   Coach.findById(req.query.id)
     .populate("athlete").populate("region")
@@ -81,6 +85,7 @@ exports.coach_show_get = (req, res) => {
       console.log(err);
     });
 };
+
 
 //HTTP DELETE - Coach
 exports.coach_delete_get = (req, res) => {

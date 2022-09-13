@@ -27,6 +27,13 @@
     <p class="page-title">ATHLETES</p>
     <div class="training-plan">
         <p>List of Athletes go here</p>
+        
+            <% coach.athlete.forEach(function(athlete) { %>
+                <a href="/athlete/detail?id=<%= athlete._id %>"> <h3> <%= athlete.nameAthlete %> <span class="list-age"> Age: <%= moment().diff(athlete.dateOfBirth, 'years') %></span>  </h3></a>
+               
+            <% }) %>
+        
+
     </div>
 </section>
 

@@ -20,9 +20,6 @@ var storage = multer.diskStorage({
   },
 });
 var upload = multer({ storage: storage });
-//Images:
-// router.use("/uploads", express.static("uploads"));
-
 
 
 const coachCtrl = require("../controllers/coaches");
@@ -34,8 +31,6 @@ const coachCtrl = require("../controllers/coaches");
 // router.get("/coach/add", IsLoggedIn, coachCtrl.coach_create_get); to be added when log in etc is ready
 router.get("/coach/add", coachCtrl.coach_create_get);
 router.post("/coach/add", upload.single('image'), coachCtrl.coach_create_post);
-//live search:
-router.post('/coach/index', coachCtrl.coach_indexSearch_post);
 router.get("/coach/index", coachCtrl.coach_index_get);
 router.get("/coach/detail", coachCtrl.coach_show_get);
 router.get("/coach/delete", coachCtrl.coach_delete_get);

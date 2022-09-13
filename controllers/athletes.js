@@ -19,8 +19,10 @@ exports.athlete_create_get = (req, res) => {
     .then((coaches) => {
         Region.find()
         .then((regions) => {
-            res.render("athlete/add", { coaches, regions })
+            res.render("athlete/add", { coaches, regions })          
         })
+       
+        
         .catch((err) => {
             console.log(err);
         })
@@ -45,7 +47,12 @@ exports.athlete_create_post = (req, res) => {
   athlete.image = imagePath;
   athlete
     .save()
-    .then(() => {
+    .then((athlete) => {
+        Coach.findById(req.body.coach)
+        .then((coach) => {
+            coach.athlete.push(athlete)
+            coach.save()
+        })
       res.redirect("/athlete/index");
     })
     .catch((err) => {

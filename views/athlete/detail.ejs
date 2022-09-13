@@ -11,7 +11,6 @@
             <p>Gender:  <%= athlete.gender %> </p>
             <p>Age: <%= moment().diff(athlete.dateOfBirth, 'years') %> years old </p> </p>
             <p>Region: <%= athlete.region.nameRegion %> </p>
-            <p>Club: <%= athlete.club %> </p>
             <p>Coach: <%= athlete.coach.nameCoach %> </p>
             <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
@@ -24,6 +23,44 @@
     <br><br><br>
     <p class="page-title">PERFORMANCES</p>
     <div class="training-plan">
+
+        <!-- Attempt training plan add -->
+        <table class="table table-striped">
+            <tr>
+                <th>Activity</th>
+                <th>Time</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+
+            <tr>
+                <form method="POST" action="/athlete/add">
+                <td><input type="text" name="nameActivity" id=""></td>
+                <td><input type="text" name="timeActivity" id=""></td>
+                <td><input type="text" name="locationActivity" id=""></td>
+                <td><input type="date" name="dateActivity" id=""></td>
+                <td><button type="submit"  id="">Submit</button></td>
+                    
+                </form>
+            </tr>
+
+            <!-- for each goes here? -->
+
+            <tr>
+                <% athlete.performance.forEach(function(performance) { %>
+                <td> <%= performance.nameActivity %> </td>
+                <td> <%= performance.timeActivity %> </td>
+                <td> <%= performance.locationActivity %> </td>
+                <td> <%= performance.dateActivity %> </td>
+
+                <% }) %>
+                
+            </tr>
+        </table>
+
+
+
         <p>Performances go here</p>
     </div>
     <br><br><br>
@@ -35,29 +72,3 @@
 
 </section>
 
-<!-- <div>
-    <div>
-        <h3> <%= athlete.nameAthlete %> </h3>
-    </div>
-
-    <div> Email Address: <%= athlete.emailAddress %> </div>
-    <div> Gender: <%= athlete.gender %> </div>
-    <div> Age: <%= athlete.dateOfBirth %> </div>
-    <div> Club: <%= athlete.club %> </div>
-    <div> Coach: <%= athlete.nameCoach %> </div>
-    <div> Event: <%= athlete.event %> </div>
-    <div> Event: <%= athlete.region %> </div>
-    <div> Created At: <%= moment(athlete.createdAt).fromNow() %> </div>
-
-    <br>
-
-
-    <% athlete.event.forEach(function(event) { %>
-
-    <hr /> -->
-    <!-- <div> - I may need to delete this later.
-        <div> Event: <%= event.event %></div>
-        <div> Distance: <%= race.distance %></div>
-    </div>
-  <% }) %> 
-</div> -->

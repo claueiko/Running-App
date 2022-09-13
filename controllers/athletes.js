@@ -2,6 +2,7 @@
 const { Athlete } = require("../models/Athlete");
 const { Coach } = require("../models/Coach");
 const { Region } = require("../models/Region");
+const { Performance } = require("../models/Performance")
 // const Athlete = require("../models/Athlete").Athlete;
 
 // Require Moment Library
@@ -34,13 +35,8 @@ exports.athlete_create_get = (req, res) => {
 
 // HTTP POST - Athlete
 exports.athlete_create_post = (req, res) => {
-    // console.log(req.body);
-    // res.send("POST WORKS!!!!");
-
     // Saving the data into the Database
-
     //Images 
- 
   console.log(req.file);
   let imagePath = '/uploads/' + req.file.filename;
   let athlete = new Athlete(req.body);
@@ -75,7 +71,7 @@ exports.athlete_create_post = (req, res) => {
 
 // HTTP GET - Athlete Index API - We will need to write, 'club' on line 63 at the end of 'coach'.
 exports.athlete_index_get = (req, res) => {
-    Athlete.find().populate('region').populate('coach')
+    Athlete.find().populate('region').populate('coach').populate('performance')
     .then(athletes => {
         res.render("athlete/index", {athletes: athletes, moment}) // athletes: athletes, moment: moment
     })
@@ -90,7 +86,7 @@ exports.athlete_show_get = (req, res) => {
 
     // Find the athlete by ID
     Athlete.findById(req.query.id)
-    .populate('coach').populate('region')
+    .populate('coach').populate('region').populate('performance')
     .then(athlete => {
         res.render("athlete/detail", {athlete, moment}) // athlete: athlete, moment: moment
     }) 
@@ -98,6 +94,7 @@ exports.athlete_show_get = (req, res) => {
         console.log(err)
     })
 }
+
 
 
 // HTTP DELETE - Athlete

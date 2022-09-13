@@ -18,9 +18,9 @@ const athleteSchema = mongoose.Schema({
         ref: 'Coach'
         
     },
-    event: [{
+    performance: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Event'
+        ref: 'Performance'
     }],
     region: 
         {

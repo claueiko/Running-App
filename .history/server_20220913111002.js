@@ -11,7 +11,7 @@ const flash = require ('connect-flash');
 const mongoose = require('mongoose')
 
 // PORT Configuration
-const PORT = process.env.PORT;
+const PORT = 4008;
 
 // Initialise Express application
 const app = express();

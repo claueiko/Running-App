@@ -45,13 +45,13 @@
 
             <div class="menuAlignment">
                 <% if(currentUser) { %> 
-                    Hi <%= currentUser.nameAthlete %>
+                    Hi <%= currentUser.firstName %> <%= currentUser.lastName %>
                     <a href="/auth/logout" class="btn btn-outline-primary"> logout </a>
     
                 <% } else { %> 
                 
-            <a href="/auth/signin" class="menu-nav"> SIGN IN </a>
-            <a href="/auth/signup" class="menu-nav"> SIGN UP </a>
+            <a href="/auth/signin" class="btn btn-outline-primary"> SIGN IN </a>
+            <a href="/auth/signup" class="btn btn-outline-primary"> SIGN UP </a>
     
                 <% } %>
             </div>

@@ -26,7 +26,7 @@ passport.use(new LocalStrategy({
     passwordField: "password"
 },
     function(emailAddress, password, done) {
-      UserAthlete.findOne({ emailAddress: emailAddress }, function (err, userAthlete) {
+      User.findOne({ emailAddress: emailAddress }, function (err, userAthlete) {
         if (err) { return done(err); }
         if (!userAthlete) { return done(null, false); }
         if (!userAthlete.verifyPassword(password)) { return done(null, false); }

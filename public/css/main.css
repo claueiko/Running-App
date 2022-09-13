@@ -179,3 +179,8 @@ th {
     border-radius: 10px;
     border: none
 }
+.list-age {
+    font-weight: 300;
+    font-size: 22px;
+    margin-left: 50px;
+}

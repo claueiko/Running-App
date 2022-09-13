@@ -31,11 +31,8 @@ exports.coach_create_post = (req, res) => {
   
   // Saving the data into the database
 
-  //images to delete
-  // let response = '<a href="/">Home</a><br>';
-  // response += "Files uploaded successfully.<br>";
-  // response += `<img src="${req.file.coach}" /><br>`;
-  // return res.send(response)
+ //Images 
+ 
   console.log(req.file);
   let imagePath = '/uploads/' + req.file.filename;
   let coach = new Coach(req.body);

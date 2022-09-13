@@ -6,6 +6,9 @@ const athleteSchema = mongoose.Schema({
     gender: String,
     dateOfBirth: Date,
     // photo: Insert photo later
+    image: {
+        type: String,
+    },
     club: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Club'

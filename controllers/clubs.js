@@ -1,7 +1,8 @@
 // Require Club Model
 const { Athlete } = require("../models/Athlete");
 const { Club } = require("../models/Club");
-const { Region } = require("../models/Region")
+const { Region } = require("../models/Region");
+const { Coach } = require("../models/Coach");       
 // Api to require moment library
 const moment = require("moment");
 
@@ -14,8 +15,14 @@ const moment = require("moment");
 exports.club_create_get = (req, res) => {
     Region.find()
     .then((regions) => {
-  res.render("club/add", { regions });
+      Coach.find()
+      .then((coaches) => {
+        res.render("club/add", { regions, coaches });
+      })
+      .catch((err) => {
+        console.log(err);
     })
+  })
     .catch((err) => {
         console.log(err);
     })
@@ -23,14 +30,17 @@ exports.club_create_get = (req, res) => {
 
 //HTTP POST - Club
 exports.club_create_post = (req, res) => {
-  // console.log(req.body);
-  // res.send("POST WORKS");
-
+ 
   // Saving the data into the database
   let club = new Club(req.body);
   club
     .save()
-    .then(() => {
+    .then((club) => {
+      Coach.findById(req.body.coach)
+      .then((coach) => {
+        coach.club.push(club)
+        coach.save()
+      })
       res.redirect("/club/index");
     })
     .catch((err) => {
@@ -41,7 +51,7 @@ exports.club_create_post = (req, res) => {
 
 // HTTP Get - Club index API
 exports.club_index_get = (req, res) => {
-  Club.find().populate("region")
+  Club.find().populate("region").populate("coach")
     .then(clubs => {
       res.render("club/index", { clubs, moment });
     })
@@ -56,7 +66,7 @@ exports.club_show_get = (req, res) => {
 
   // Find the club by that ID
   Club.findById(req.query.id)
-    .populate("athlete").populate("region")
+    .populate("coach").populate("region")
     .then((club) => {
       res.render("club/detail", { club, moment });
     })

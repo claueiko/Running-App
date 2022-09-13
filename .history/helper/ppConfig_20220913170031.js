@@ -14,6 +14,9 @@ passport.serializeUser(function(userAthlete, done){
     done(null, userAthlete.id)
 });
 
+passport.serializeUser(function(userCoach, done){
+  done(null, userCoach.id)
+});
 
 // DeSerialize User
 // Reading the information from the database according to the ID from Session
@@ -21,6 +24,12 @@ passport.deserializeUser(function(id, done) {
     UserAthlete.findById(id, function(err, userAthlete){
         done(err, userAthlete);
     });
+});
+
+passport.deserializeUser(function(id, done) {
+  UserCoach.findById(id, function(err, userCoach){
+      done(err, userCoach);
+  });
 });
 
 passport.use(new LocalStrategy({
@@ -37,7 +46,19 @@ passport.use(new LocalStrategy({
     }
   ));
 
-
+  passport.use(new LocalStrategy({
+    usernameField: "emailAddressCoach", 
+    passwordField: "passwordCoach"
+},
+    function(emailAddressCoach, passwordCoach, done) {
+      UserCoach.findOne({ emailAddressCoach: emailAddressCoach }, function (err, userCoach) {
+        if (err) { return done(err); }
+        if (!userCoach) { return done(null, false); }
+        if (!userCoach.verifyPassword(passwordCoach)) { return done(null, false); }
+        return done(null, userCoach);
+      });
+    }
+  ));
 
 // Export Passport Middleware 
 module.exports = passport

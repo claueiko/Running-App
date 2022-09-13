@@ -2,6 +2,7 @@
 const express = require('express');
 
 
+
 // Require and initialise dotenv
 
 
@@ -15,14 +16,22 @@ const PORT = 4008;
 const app = express();
 
 
+
+
 // Using Connect Flash
 // app.use(flash())
 
 // looking for static files in Public folder
 app.use(express.static("public"));
 
+
+
 // Require express-ejs-layouts dependancy
 const expressLayouts = require('express-ejs-layouts');
+
+
+
+
 
 //  Import Routes below
 const indexRouter = require('./routes/index');
@@ -31,12 +40,11 @@ const coachRouter = require('./routes/coaches');
 const regionRouter = require('./routes/regions');
 const clubRouter = require('./routes/clubs');
 const eventRouter = require('./routes/events');
+//image
+// const imageRouter = require('./routes/images');
 
  
 app.use(expressLayouts);
-
-
-
 
 
 // Mount Routes
@@ -46,12 +54,12 @@ app.use('/', coachRouter);
 app.use("/", regionRouter);
 app.use('/', clubRouter);
 app.use('/', eventRouter);
+// app.use('/', imageRouter);
 
 
 
 
 app.set("view engine", "ejs");
-
 
 
 

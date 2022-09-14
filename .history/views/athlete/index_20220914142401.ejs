@@ -34,10 +34,10 @@
             <!-- The lines below are creating an error - going to routes -->
             <% if(currentUser.userType == "athlete") { %>
                 <td><a href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </td>
+                <td><a href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </td>
+            <!-- <td><a href="/athlete/edit?id=<%= athlete.id %>" display: none > Edit </a> </td> -->
             <% } %>
-            <% if(currentUser.userType == "athlete") { %>
-            <td><a href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </td>
-            <% } %>
+
         </tr>
     <% }) %>
 </table>

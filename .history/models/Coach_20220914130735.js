@@ -41,5 +41,5 @@ const coachSchema = mongoose.Schema(
 const Coach = mongoose.model("Coach", coachSchema);
 
 // Exports statements (to other files)
-module.exports = { Coach }; 
+module.exports = { Coach };
  

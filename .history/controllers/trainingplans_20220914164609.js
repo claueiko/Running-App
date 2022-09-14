@@ -32,11 +32,11 @@ exports.coach_trainingPlan_post = (req, res) => {
     let trainingPlan = new TrainingPlan(req.body);
     trainingPlan
     .save()
-    .then((trainingPlan) => {
-        coach.findById(req.body.coachId)
-        .then((coach) => {
-            coach.trainingPlan.push(trainingPlan)
-            coach.save()
+    .then((coach) => {
+        TrainingPlan.findById(req.body.trainingPlan)
+        .then((trainingPlan) => {
+            trainingPlan.coach.push(coach)
+            trainingPlan.save()
         })
     res.redirect("/coach/index");
     })

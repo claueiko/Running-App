@@ -25,7 +25,7 @@ var upload = multer({ storage: storage });
 const coachCtrl = require("../controllers/coaches");
 
 //isLoggedIn middleware
-const isLoggedIn = require("../helper/isLoggedIn");
+const IsLoggedIn = require("../helper/isLoggedIn");
 
 //Routes
 // router.get("/coach/add", IsLoggedIn, coachCtrl.coach_create_get); to be added when log in etc is ready

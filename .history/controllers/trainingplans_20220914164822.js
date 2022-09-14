@@ -32,7 +32,7 @@ exports.coach_trainingPlan_post = (req, res) => {
     let trainingPlan = new TrainingPlan(req.body);
     trainingPlan
     .save()
-    .then((trainingPlan) => {
+    .then((traininPlan) => {
         coach.findById(req.body.coachId)
         .then((coach) => {
             coach.trainingPlan.push(trainingPlan)

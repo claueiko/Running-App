@@ -11,7 +11,7 @@
             <p>Gender:  <%= athlete.gender %> </p>
             <p>Age: <%= moment().diff(athlete.dateOfBirth, 'years') %> years old </p> </p>
             <p>Region: <%= athlete.region.nameRegion %> </p>
-            <p>Coach: <%= athlete.coach.nameCoach %> </p>
+            <p>Coach:    <a href="/coach/detail?id=<%= athlete.coach._id %>"><%= athlete.coach.nameCoach %></a></p>
             <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
             <a class="edit-button" href="/athlete/edit?id=<%= athlete.id %>">Edit profile</a>

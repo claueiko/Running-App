@@ -87,13 +87,20 @@ exports.athlete_show_get = (req, res) => {
     // Find the athlete by ID
     Athlete.findById(req.query.id)
     .populate('coach').populate('region').populate('performance')
-    .then(athlete => {
-        res.render("athlete/detail", {athlete, moment}) // athlete: athlete, moment: moment
+    .then((athlete) => {
+        // PERFORMANCE?
+        Performance.find()
+        .then((performance) => {
+          res.render("athlete/detail", { athlete, moment, performance }); // athlete: athlete, moment: moment
+        })
+       .catch((err) => {
+        console.log(err)
+       });
     }) 
-    .catch(err => {
+    .catch((err) => {
         console.log(err)
     })
-}
+};
 
 
 

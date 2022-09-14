@@ -5,6 +5,7 @@ const eventSchema = mongoose.Schema({
     emailAddressEvent: String,
     dateEvent: Date,
     addressEvent: String,
+    linkEvent: String,
     // photo: Insert photo later
     athlete: [
         {

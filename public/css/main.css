@@ -219,3 +219,16 @@ th {
     background-color: rgb(245, 245, 245);
     border-radius: 10px;
 }
+.event-link {
+    font-size: 40px;
+    color: white;
+    background-color: black;
+    padding: 20px 90px;
+    border-radius: 15px; 
+}
+.event-link:hover {
+    color: rgb(199, 198, 198)
+}
+.event-row {
+    text-align: center;
+}

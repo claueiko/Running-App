@@ -29,8 +29,17 @@
                 <% })  %>
             </select>
         </div><br>
-    
-    
+
+        <!-- coaches -->
+    <div class="form-group">
+            <label for="">Coaches</label>
+            <select name="coach[]" id="" class="form-control form-field">
+                <% coaches.forEach(function (coach){ %>
+                    <option value="<%= coach._id %>"> <%= coach.nameCoach %> </option>
+                <% })  %>
+            </select>
+        </div><br>
+
     <!-- 
           <div class="form-group">
             <label for="">Region</label>

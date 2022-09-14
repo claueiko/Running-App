@@ -187,3 +187,21 @@ th {
     font-size: 22px;
     margin-left: 50px;
 }
+.club-column {
+    width: 65%;
+    padding: 40px 40px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+}
+.performance-field{
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+.performance-submit {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+}

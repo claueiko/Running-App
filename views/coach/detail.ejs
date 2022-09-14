@@ -15,7 +15,16 @@
             <a class="edit-button" href="/coach/edit?id=<%= coach._id %>">Edit profile</a>
         </div>
         <div class="coach-column">
-            <p>Club Information</p>
+            <p class="name">Club Information</p>
+            <% coach.club.forEach(function(club) { %>
+                <p>Club: <%= club.nameClub %> </p>
+                <p>Email: <%= club.emailAddressClub %> </p>
+                <p>Website: <%= club.websiteClub %> </p>
+             <% }) %>
+            
+            <a class="edit-button" href="/club/add">Add Club</a>
+            
+            
         </div>
     </div>
     <br><br><br>

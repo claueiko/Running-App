@@ -17,10 +17,10 @@ const clubSchema = mongoose.Schema(
         ref: "Athlete",
       },
     
-    coach: {
+    coach: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Coach'
-    },
+    }],
   },
   { timestamps: true }
 );

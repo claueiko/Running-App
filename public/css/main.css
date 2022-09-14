@@ -43,6 +43,28 @@ a:hover {
     background-color: rgb(58, 43, 226);
     color: white
 }
+.signup-section {
+    padding: 5% 35%;
+    
+}
+.signup-form {
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 10px;
+    padding: 20px 40px;
+}
+.signup-title {
+    text-align: center;
+}
+.signup-button {
+    background-color: black;
+    color: white;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 10px;
+}
+.button-signup-div {
+    text-align: center;
+}
 
 .hero {
     /* background-image: url("/images/woman-running.jpeg");

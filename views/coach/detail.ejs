@@ -31,44 +31,40 @@
     <p class="page-title">TRAINING PLAN</p>
 
 
-    <div class="training-plan">
+   <div class="training-plan">
 
         <!-- Attempt training plan add -->
         <table class="table table-striped">
             <tr>
                 <th>Name</th>
-                <th>Mon</th>
+                <th>Mon </th>
                 <th>Tue</th>
                 <th>Wed</th>
                 <th>Thu</th>
                 <th>Fri</th>
                 <th>Sat</th>
                 <th>Sun</th>
-               
                 <th></th>
             </tr>
             
             <tr>
                 <form method="POST" action="/trainingPlan/add"> 
-                <td><input class="performance-field" type="text" name="name" id=""></td>
-                <td><input class="performance-field" type="text" name="monday" id=""></td>
-                <td><input class="performance-field" type="text" name="tuesday" id=""></td>
-                <td><input class="performance-field" type="text" name="wednesday" id=""></td>
-                <td><input class="performance-field" type="text" name="thursday" id=""></td>
-                <td><input class="performance-field" type="text" name="friday" id=""></td>
-                <td><input class="performance-field" type="text" name="saturday" id=""></td>
-                <td><input class="performance-field" type="text" name="sunday" id=""></td>
+                <td><input class="training-field" type="text" name="name" id=""></td>
+                <td><input class="training-field" type="text" name="monday" id=""></td>
+                <td><input class="training-field" type="text" name="tuesday" id=""></td>
+                <td><input class="training-field" type="text" name="wednesday" id=""></td>
+                <td><input class="training-field" type="text" name="thursday" id=""></td>
+                <td><input class="training-field" type="text" name="friday" id=""></td>
+                <td><input class="training-field" type="text" name="saturday" id=""></td>
+                <td><input class="training-field" type="text" name="sunday" id=""></td>
                 <td><button class="performance-submit" type="submit"  id="">Add</button></td>
                     <input type="hidden" name="coachId" value="<%= coach._id %>">
                 </form>
             </tr>
-
             <!-- for each goes here? -->
-
-            
-                <% coach.trainingPlan.forEach(function(trainingPlan) { %>
+            <% coach.trainingPlan.forEach(function(trainingPlan) { %>
             <tr>
-                <td> <%= trainingPlan.weekBeginning %> </td>
+                <td> <%= trainingPlan.name %> </td>
                 <td> <%= trainingPlan.monday %> </td>
                 <td> <%= trainingPlan.tuesday %> </td>
                 <td> <%= trainingPlan.wednesday %> </td>
@@ -77,13 +73,11 @@
                 <td> <%= trainingPlan.saturday %> </td>
                 <td> <%= trainingPlan.sunday %> </td>
             </tr>
-                <% }) %>
+            <% }) %>
                 
-            
         </table>
-      
-    </div>
 
+    </div>
     <br><br><br>
     <p class="page-title">ATHLETES</p>
     <div class="training-plan">
@@ -96,13 +90,22 @@
         
 
     </div>
+
+
+    <!--  new one: -->
+    
+    <br><br><br>
+    <p class="page-title">EVENTS</p>
+    <div class="training-plan">
+        <p>All Events go here</p>
+    </div>
 </section>
 
 
 
 
 
-<br>
+
 
 <!-- Clubs! -->
 

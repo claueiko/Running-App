@@ -232,3 +232,10 @@ th {
 .event-row {
     text-align: center;
 }
+.training-field {
+    border: none;
+    font-size: 14px;
+    height: 20px;
+    border-radius: 5px;
+    padding: 20px 5px;
+}

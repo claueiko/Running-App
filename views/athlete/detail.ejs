@@ -36,34 +36,29 @@
             </tr>
             
             <tr>
-                <form method="POST" action="/athlete/add"> 
+                <form method="POST" action="/performance/add"> 
                 <td><input class="performance-field" type="text" name="nameActivity" id=""></td>
                 <td><input class="performance-field" type="text" name="distanceActivity" id=""></td>
                 <td><input class="performance-field" type="text" name="timeActivity" id=""></td>
                 <td><input class="performance-field" type="text" name="locationActivity" id=""></td>
                 <td><input class="performance-field" type="date" name="dateActivity" id=""></td>
                 <td><button class="performance-submit" type="submit"  id="">Add</button></td>
-                    
+                    <input type="hidden" name="athleteId" value="<%= athlete._id %>">
                 </form>
             </tr>
-
             <!-- for each goes here? -->
-
+            <% athlete.performance.forEach(function(performance) { %>
             <tr>
-                <% athlete.performance.forEach(function(performance) { %>
                 <td> <%= performance.nameActivity %> </td>
-                <td> <%= performance.timeActivity %> </td>
+                <td> <%= performance.distanceActivity %> KM </td>
+                <td> <%= performance.timeActivity %> minutes</td>
                 <td> <%= performance.locationActivity %> </td>
-                <td> <%= performance.dateActivity %> </td>
-
-                <% }) %>
-                
+                <td> <%= moment(performance.dateActivity).format('LL') %> </td>
             </tr>
+            <% }) %>
+                
         </table>
 
-
-
-        <p>Performances go here</p>
     </div>
     <br><br><br>
     <p class="page-title">EVENTS</p>

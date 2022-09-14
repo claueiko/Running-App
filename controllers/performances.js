@@ -27,18 +27,18 @@ exports.athlete_performance_get = (req, res) => {
 
 // HTTP POST - PERFORMANCE
 exports.athlete_performance_post = (req, res) => {
-    console.log(req.query.id);
+    console.log(req.query.athleteId);
 
     let performance = new Performance(req.body);
     performance
     .save()
-    .then((athlete) => {
-        Performance.findById(req.body.performance)
-        .then((performance) => {
-            performance.athlete.push(athlete)
-            performance.save()
+    .then((performance) => {
+        Athlete.findById(req.body.athleteId)
+        .then((athlete) => {
+            athlete.performance.push(performance)
+            athlete.save()
         })
-    res.redirect("/athlete/index");
+    res.redirect("back");
     })
     .catch((err) => {
         console.log(err);

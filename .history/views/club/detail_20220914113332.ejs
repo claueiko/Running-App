@@ -8,7 +8,7 @@
         <div class="club-column">
             <h2 class="name"> <%= club.nameClub %></h2> <br>
             <p>Email: <%= club.emailAddressClub %></p>
-            <p>Club Website: <a target="_blank" href="<%= club.linkClub %> "><%= club.linkClub %></a></p>
+            <p>Club Website: <%= club.linkClub %></p>
             <p>Region: <%= club.region.nameRegion %> </p>
             <p class="moment-class">Added: <%= moment(club.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(club.updatedAt).fromNow() %></p>

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const userAthleteSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
     nameAthlete: {
         type: String,
         required: true,

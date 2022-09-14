@@ -30,7 +30,7 @@ exports.auth_signup_post = (req, res) => {
     })
     .catch((err) => {
         console.log(err)
-        res.send("Line 33 please try again later.")
+        res.send("Please try again later.")
     })
 }
 // HTTP GET - Signin Route - To load the signin form

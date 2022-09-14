@@ -25,6 +25,7 @@ var upload = multer({ storage: storage });
 
 const athleteCtrl = require('../controllers/athletes');
 const performanceCtrl = require('../controllers/performances')
+
 const isLoggedIn = require('../helper/isLoggedIn');
 
 // Routes athlete.get /add will have middleware in the middle but it has been removed until we have log ins.
@@ -34,7 +35,7 @@ router.get("/athlete/index", isLoggedIn, athleteCtrl.athlete_index_get);
 router.get("/athlete/detail", athleteCtrl.athlete_show_get);
 // route for performance in athlete details
 router.get("/athlete/detail", performanceCtrl.athlete_performance_get);
-router.post("/performance/add", performanceCtrl.athlete_performance_post);
+router.post("/athlete/detail", performanceCtrl.athlete_performance_post);
 
 router.get("/athlete/delete", athleteCtrl.athlete_delete_get);
 router.get("/athlete/edit",  athleteCtrl.athlete_edit_get);

@@ -14,10 +14,10 @@ const moment = require('moment');
 
 exports.coach_trainingPlan_get = (req, res) => {
     Coach.findById(req.query.id)
-    .then((coach) => {
+    .then((coaches) => {
         TrainingPlan.find()
         .then((trainingPlans) => {
-            res.render("coach/details", {coach, trainingPlans})
+            res.render("coach/details", {coaches, trainingPlans})
         })
         .catch(err => {
             console.log(err);
@@ -25,23 +25,23 @@ exports.coach_trainingPlan_get = (req, res) => {
     })
 }
 
-// HTTP POST - PERFORMANCE
+// HTTP POST - TRAINING PLAN
 exports.coach_trainingPlan_post = (req, res) => {
-    console.log(req.query.id);
+    console.log(req.query.coachId);
 
     let trainingPlan = new TrainingPlan(req.body);
     trainingPlan
     .save()
-    .then((coach) => {
-        TrainingPlan.findById(req.body.trainingPlan)
-        .then((trainingPlan) => {
-            trainingPlan.coach.push(coach)
-            trainingPlan.save()
+    .then((trainingPlan) => {
+        Coach.findById(req.body.coachId)
+        .then((coach) => {
+            coach.trainingPlan.push(trainingPlan)
+            coach.save()
         })
-    res.redirect("/coach/index");
+    res.redirect("back");
     })
     .catch((err) => {
         console.log(err);
-        res.send("Try again later coachs controller line 115");
+        res.send("Try again later coaches controller line 45");
     });
 };

@@ -29,25 +29,28 @@
     </div>
     <br><br><br>
     <p class="page-title">TRAINING PLAN</p>
+
+
     <div class="training-plan">
 
         <!-- Attempt training plan add -->
         <table class="table table-striped">
             <tr>
-                <th>Week Beginning</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-                <th>Sunday</th>
+                <th>Name</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+               
                 <th></th>
             </tr>
             
             <tr>
-                <form method="POST" action="/coach/add"> 
-                <td><input class="performance-field" type="date" name="weekBeginning" id=""></td>
+                <form method="POST" action="/trainingPlan/add"> 
+                <td><input class="performance-field" type="text" name="name" id=""></td>
                 <td><input class="performance-field" type="text" name="monday" id=""></td>
                 <td><input class="performance-field" type="text" name="tuesday" id=""></td>
                 <td><input class="performance-field" type="text" name="wednesday" id=""></td>
@@ -56,14 +59,15 @@
                 <td><input class="performance-field" type="text" name="saturday" id=""></td>
                 <td><input class="performance-field" type="text" name="sunday" id=""></td>
                 <td><button class="performance-submit" type="submit"  id="">Add</button></td>
-                    
+                    <input type="hidden" name="coachId" value="<%= coach._id %>">
                 </form>
             </tr>
 
             <!-- for each goes here? -->
 
-            <tr>
+            
                 <% coach.trainingPlan.forEach(function(trainingPlan) { %>
+            <tr>
                 <td> <%= trainingPlan.weekBeginning %> </td>
                 <td> <%= trainingPlan.monday %> </td>
                 <td> <%= trainingPlan.tuesday %> </td>
@@ -72,16 +76,14 @@
                 <td> <%= trainingPlan.friday %> </td>
                 <td> <%= trainingPlan.saturday %> </td>
                 <td> <%= trainingPlan.sunday %> </td>
-
+            </tr>
                 <% }) %>
                 
-            </tr>
+            
         </table>
-
-
-
-        <p>Performances go here</p>
+      
     </div>
+
     <br><br><br>
     <p class="page-title">ATHLETES</p>
     <div class="training-plan">

@@ -29,10 +29,7 @@ const coachSchema = mongoose.Schema(
         ref: "Athlete",
       },
     ],
-    trainingPlan: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'TrainingPlan'
-  }],
+    trainingPlan: String,
   },
   { timestamps: true }
 );

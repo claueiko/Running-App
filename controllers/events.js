@@ -134,15 +134,27 @@ exports.event_update_put = (req, res) => {
 
 
 // LIVE SEARCH - HTTP POST ATTEMPT NUMBER 952
+// exports.event_search = (req, res) => {
+//   let event = new Event(req.body);
+//   console.log(event.nameEvent);
+//   Event.find({ nameEvent: event.nameEvent })
+//     .then((events) => {
+//       res.render("event/index", { events: events, moment });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
+
 exports.event_search = (req, res) => {
   let event = new Event(req.body);
   console.log(event.nameEvent);
-  Event.find({ nameEvent: event.nameEvent })
+  
+  Event.find({ nameEvent: { $regex: event.nameEvent } })
     .then((events) => {
       res.render("event/index", { events: events, moment });
     })
     .catch((err) => {
       console.log(err);
     });
-
 };

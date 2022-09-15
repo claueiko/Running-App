@@ -46,3 +46,16 @@ exports.coach_trainingPlan_post = (req, res) => {
         res.send("Try again later coaches controller line 45");
     });
 };
+
+// HTTP DELETE TRAINING PLAN:
+exports.trainingPlan_delete_get = (req, res) => {
+    console.log(req.query.id);
+
+    TrainingPlan.findByIdAndDelete(req.query.id)
+    .then(() => {
+        res.redirect("back");
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}

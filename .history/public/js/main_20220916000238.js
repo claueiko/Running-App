@@ -12,6 +12,12 @@ $(document).ready(function() {
     $("#twImage").animate({left: '120px'}, 500);
     $("#insImage").animate({left: '60px'}, 500);
   })
+  $(".mediaIcon").click(function () {
+    console.log("button has been clicked")
+    $("#fbImage").animate({right: '180px'}, 500); //I think I need visibility here but it is still not showing as visible.
+    $("#twImage").animate({right: '120px'}, 500);
+    $("#insImage").animate({right: '60px'}, 500);
+  });
 })
 
 

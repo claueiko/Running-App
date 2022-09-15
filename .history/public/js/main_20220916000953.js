@@ -6,7 +6,7 @@
 //   });
 
 $(document).ready(function() {
-  $(".mediaIcon").click(function () {
+  $(".mediaIcon").toggle(function () {
     console.log("button has been clicked")
     $("#fbImage").animate({left: '180px'}, 500); //I think I need visibility here but it is still not showing as visible.
     $("#twImage").animate({left: '120px'}, 500);

@@ -349,7 +349,6 @@ th {
     opacity: 0;
 } */
 
-.mediaImage {
+#fbImage {
     position: absolute;
-    /* visibility: hidden; */
 }

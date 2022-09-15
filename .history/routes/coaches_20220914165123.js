@@ -23,7 +23,6 @@ var upload = multer({ storage: storage });
 
 
 const coachCtrl = require("../controllers/coaches");
-const traningPlanCtrl = require("../controllers/trainingPlans")
 
 //isLoggedIn middleware
 const isLoggedIn = require("../helper/isLoggedIn");
@@ -34,14 +33,8 @@ router.get("/coach/add", coachCtrl.coach_create_get);
 router.post("/coach/add", upload.single('image'), coachCtrl.coach_create_post);
 router.get("/coach/index", coachCtrl.coach_index_get);
 router.get("/coach/detail", coachCtrl.coach_show_get);
-
-// route for coaches training plan
-router.get("coach/detail", traningPlanCtrl.coach_trainingPlan_get);
-router.post("/trainingPlan/add", traningPlanCtrl.coach_trainingPlan_post);
-
-router.get("/coach/delete", coachCtrl.coach_delete_get);
-router.get("/coach/edit", coachCtrl.coach_edit_get);
-router.put("/coach/update", coachCtrl.coach_update_put);
-
+router.get("/coach/delete", isLoggedIn, coachCtrl.coach_delete_get);
+router.get("/coach/edit", isLoggedIn, coachCtrl.coach_edit_get);
+router.put("/coach/update", isLoggedIn,coachCtrl.coach_update_put);
 
 module.exports = router;

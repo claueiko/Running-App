@@ -32,13 +32,11 @@
             <td><%= moment(athlete.updatedAt).fromNow() %></td> -->
 
             <!-- The lines below are creating an error - going to routes -->
-
             <% if(!currentUser) { %> 
-                <% } else if(currentUser.userType == "athlete") { %>
-                 <td><a href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </td>
-                 <td><a href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </td>
-                 <% } %>
-
+           <% } else if(currentUser.userType == "athlete") { %>
+            <td><a href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </td>
+            <td><a href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </td>
+            <% } %>
         </tr>
     <% }) %>
 </table>

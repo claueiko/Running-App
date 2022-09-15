@@ -34,10 +34,10 @@ router.get("/athlete/index", athleteCtrl.athlete_index_get);
 router.get("/athlete/detail", athleteCtrl.athlete_show_get);
 // route for performance in athlete details
 router.get("/athlete/detail", performanceCtrl.athlete_performance_get);
-router.post("/performance/add", isLoggedIn, performanceCtrl.athlete_performance_post);
+router.post("/performance/add", performanceCtrl.athlete_performance_post);
 
 router.get("/athlete/delete", isLoggedIn, athleteCtrl.athlete_delete_get);
-router.get("/athlete/edit", isLoggedIn, athleteCtrl.athlete_edit_get);
+router.get("/athlete/edit",  isLoggedIn, athleteCtrl.athlete_edit_get);
 router.put("/athlete/update", isLoggedIn, athleteCtrl.athlete_update_put);
 
 module.exports = router;

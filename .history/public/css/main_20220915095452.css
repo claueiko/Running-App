@@ -19,6 +19,7 @@ a:hover {
 .logo {
     font-size: 60px;
     font-weight: 900;
+    color: #FF0000;
 }
 /* .navbar {
     display: flex;
@@ -26,11 +27,6 @@ a:hover {
 .main-menu {
     padding: 20px 20px 0 80px;
 }
-
-.main-menu:hover {
-    color: #FF0000
-}
-
 .menu-right {
     margin-left: 35%;
 }
@@ -39,8 +35,6 @@ a:hover {
     font-weight: 500;
     
 }
-
-
 .signup {
     background-color: black;
     color: white;
@@ -95,11 +89,6 @@ a:hover {
     font-weight: 500;
     margin-top: 20%;
 }
-
-.title:hover {
-    color: #FF0000;
-}
-
 .subtitle {
     color:black;
     font-weight: 400;
@@ -130,7 +119,7 @@ a:hover {
     border-radius: 10px;
 }
 .column-description:hover {
-    background-color: #FF0000;
+    background-color: rgb(58, 43, 226);
 }
 .description-title {
     font-size: 32px;

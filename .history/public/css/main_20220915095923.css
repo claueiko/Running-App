@@ -15,6 +15,9 @@ a:hover {
     text-decoration: none;
 }
 
+.navbar:hover {
+    color: #FF0000;
+}
 
 .logo {
     font-size: 60px;
@@ -26,11 +29,6 @@ a:hover {
 .main-menu {
     padding: 20px 20px 0 80px;
 }
-
-.main-menu:hover {
-    color: #FF0000
-}
-
 .menu-right {
     margin-left: 35%;
 }
@@ -130,7 +128,7 @@ a:hover {
     border-radius: 10px;
 }
 .column-description:hover {
-    background-color: #FF0000;
+    background-color: rgb(58, 43, 226);
 }
 .description-title {
     font-size: 32px;

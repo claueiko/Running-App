@@ -146,3 +146,19 @@ exports.athlete_update_put = (req, res) => {
         console.log(err)
     })
 }
+
+
+//  SEARCH - HTTP POST ATTEMPT NUMBER 952
+
+exports.athlete_search = (req, res) => {
+  let athlete = new Athlete(req.body);
+  console.log(athlete.nameAthlete);
+
+  Athlete.find({ nameAthlete: { $regex: athlete.nameAthlete } })
+    .then((athletes) => {
+      res.render("athlete/index", { athletes: athletes, moment });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

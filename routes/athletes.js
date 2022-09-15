@@ -40,4 +40,7 @@ router.get("/athlete/delete", isLoggedIn, athleteCtrl.athlete_delete_get);
 router.get("/athlete/edit", isLoggedIn, athleteCtrl.athlete_edit_get);
 router.put("/athlete/update", isLoggedIn, athleteCtrl.athlete_update_put);
 
+// SEARCH 
+router.post("/athlete/search", athleteCtrl.athlete_search);
+
 module.exports = router;

@@ -1,0 +1,25 @@
+<div>
+    <div>
+        <h3> <%= athlete.nameAthlete %> </h3>
+    </div>
+
+    <div> Email Address: <%= athlete.emailAddress %> </div>
+    <div> Gender: <%= athlete.gender %> </div>
+    <div> Date of Birth: <%= athlete.dateOfBirth %> </div>
+    <div> Club: <%= athlete.club %> </div>
+    <div> Coach: <%= athlete.coachName %> </div>
+    <div> Event: <%= athlete.event %> </div>
+    <div> Created At: <%= moment(athlete.createdAt).fromNow() %> </div>
+
+    <br>
+
+
+    <% athlete.event.forEach(function(event) { %>
+
+    <hr />
+    <!-- <div> - I may need to delete this later.
+        <div> Event: <%= event.event %></div>
+        <div> Distance: <%= race.distance %></div>
+    </div> -->
+  <% }) %> 
+</div>

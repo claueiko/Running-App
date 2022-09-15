@@ -1,0 +1,76 @@
+<section class="coach-page">
+        <p class="page-title">ATHLETE</p>
+
+        <div class="coach-row1">
+        <div class="coach-column-photo">
+            <img class="profile-picture"src="..<%= athlete.image %>" alt="" width="200px" height="200px">
+        </div>
+        <div class="coach-column">
+            <h2 class="name">  <%= athlete.nameAthlete %> </h2> <br>
+            <p>Email: <%= athlete.emailAddress %> </p>
+            <p>Gender:  <%= athlete.gender %> </p>
+            <p>Age: <%= moment().diff(athlete.dateOfBirth, 'years') %> years old </p> </p>
+            <p>Region: <%= athlete.region.nameRegion %> </p>
+            <p>Coach: <%= athlete.coach.nameCoach %> </p>
+            <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
+            <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
+            <a class="edit-button" href="/athlete/edit?id=<%= athlete.id %>">Edit profile</a>
+        </div>
+        <div class="coach-column">
+            <h2 class="name">PBs</h2>
+        </div>
+    </div>
+    <br><br><br>
+    <p class="page-title">PERFORMANCES</p>
+    <div class="training-plan">
+
+        <!-- Attempt training plan add -->
+        <table class="table table-striped">
+            <tr>
+                <th>Activity</th>
+                <th>Distance in KM</th>
+                <th>Time</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            
+            <tr>
+                <form method="POST" action="/athlete/add"> 
+                <td><input class="performance-field" type="text" name="nameActivity" id=""></td>
+                <td><input class="performance-field" type="text" name="distanceActivity" id=""></td>
+                <td><input class="performance-field" type="text" name="timeActivity" id=""></td>
+                <td><input class="performance-field" type="text" name="locationActivity" id=""></td>
+                <td><input class="performance-field" type="date" name="dateActivity" id=""></td>
+                <td><button class="performance-submit" type="submit"  id="">Add</button></td>
+                    
+                </form>
+            </tr>
+
+            <!-- for each goes here? -->
+
+            <tr>
+                <% athlete.performance.forEach(function(performance) { %>
+                <td> <%= performance.nameActivity %> </td>
+                <td> <%= performance.timeActivity %> </td>
+                <td> <%= performance.locationActivity %> </td>
+                <td> <%= performance.dateActivity %> </td>
+
+                <% }) %>
+                
+            </tr>
+        </table>
+
+
+
+        <p>Performances go here</p>
+    </div>
+    <br><br><br>
+    <p class="page-title">EVENTS</p>
+    <div class="training-plan">
+        <p>All Events go here</p>
+    </div>
+
+
+</section>
+

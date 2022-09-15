@@ -26,7 +26,8 @@ exports.auth_signup_post = (req, res) => {
 
     user.save()
     .then(() => {
-        res.redirect("/");
+        //THIS TO REDIRECT TO COACH OR ATHLETE AFTER SIGNUP
+        res.redirect("/coach/add");
     })
     .catch((err) => {
         console.log(err)

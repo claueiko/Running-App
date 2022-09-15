@@ -3,6 +3,7 @@ const { Athlete } = require("../models/Athlete");
 const { Coach } = require("../models/Coach");
 const { Region } = require("../models/Region");
 const { Performance } = require("../models/Performance")
+const { User } = require("../models/User")
 // const Athlete = require("../models/Athlete").Athlete;
 
 // Require Moment Library
@@ -18,12 +19,11 @@ exports.athlete_create_get = (req, res) => {
     // res.render("athlete/add");
     Coach.find()
     .then((coaches) => {
+       
         Region.find()
         .then((regions) => {
             res.render("athlete/add", { coaches, regions })          
         })
-       
-        
         .catch((err) => {
             console.log(err);
         })
@@ -50,7 +50,8 @@ exports.athlete_create_post = (req, res) => {
             coach.save()
         })
       res.redirect("/athlete/index");
-    })
+    }) // TRYING TO CONNECT USER TO ATHLETE
+
     .catch((err) => {
       console.log(err);
       res.send("Please write again later.");
@@ -145,3 +146,19 @@ exports.athlete_update_put = (req, res) => {
         console.log(err)
     })
 }
+
+
+//  SEARCH - HTTP POST ATTEMPT NUMBER 952
+
+exports.athlete_search = (req, res) => {
+  let athlete = new Athlete(req.body);
+  console.log(athlete.nameAthlete);
+
+  Athlete.find({ nameAthlete: { $regex: athlete.nameAthlete } })
+    .then((athletes) => {
+      res.render("athlete/index", { athletes: athletes, moment });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

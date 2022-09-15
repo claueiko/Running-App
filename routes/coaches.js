@@ -38,10 +38,13 @@ router.get("/coach/detail", coachCtrl.coach_show_get);
 // route for coaches training plan
 router.get("coach/detail", traningPlanCtrl.coach_trainingPlan_get);
 router.post("/trainingPlan/add", traningPlanCtrl.coach_trainingPlan_post);
+router.get("/trainingPlan/delete", traningPlanCtrl.trainingPlan_delete_get);
 
 router.get("/coach/delete", coachCtrl.coach_delete_get);
 router.get("/coach/edit", coachCtrl.coach_edit_get);
 router.put("/coach/update", coachCtrl.coach_update_put);
 
+// SEARCH 
+router.post("/coach/search", coachCtrl.coach_search);
 
 module.exports = router;

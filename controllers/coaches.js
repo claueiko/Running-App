@@ -135,3 +135,18 @@ exports.coach_update_put = (req, res) => {
       console.log(err);
     });
 };
+
+// LIVE SEARCH - HTTP POST ATTEMPT NUMBER 952
+
+exports.coach_search = (req, res) => {
+  let coach = new Coach(req.body);
+  console.log(coach.nameCoach);
+
+  Coach.find({ nameCoach: { $regex: coach.nameCoach } })
+    .then((coaches) => {
+      res.render("coach/index", { coaches: coaches, moment });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

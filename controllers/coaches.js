@@ -3,9 +3,11 @@ const { Athlete } = require("../models/Athlete");
 const { Coach } = require("../models/Coach");
 const { Region } = require("../models/Region");
 const { TrainingPlan } = require("../models/TrainingPlan")
+const User = require("../models/User");
 
 // Api to require moment library
 const moment = require("moment");
+
 
 
 // APIs for coaches
@@ -16,6 +18,9 @@ const moment = require("moment");
 //HTTP GET - Load coachFrom
 exports.coach_create_get = (req, res) => {
   //Athletes?
+  // TRYING TO CONNECT USER AND COACH
+  // User.find()
+  // .then(())
   Athlete.find()
   .then((athletes) => {
     Region.find()

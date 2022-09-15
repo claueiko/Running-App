@@ -261,3 +261,18 @@ th {
     border-radius: 5px;
     padding: 20px 5px;
 }
+.search-form {
+    display: flex;
+    justify-content: center;
+}
+.search-field {
+    width: 50%;
+    margin-right: 10px;
+}
+.search-button {
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 5px 35px;
+    border-radius: 5px;
+}

@@ -1,5 +1,18 @@
 <section class="coach-page">
     <h2 class="page-title"> EVENT </h2>
+
+      <!-- SEARCH -->
+
+   <form action="/event/search" method="POST">
+        <div class="form-group search-form">
+            
+            <input placeholder="Search by Event Name" type="text" name="nameEvent"  class="form-control form-field search-field">
+        
+        <button type="submit" class="search-button">Search</button>
+        </div>
+    </form><br>
+
+    <!-- End of SEARCH -->
     
     <table class="table table-striped">
         <tr>
@@ -28,6 +41,7 @@
         <% }) %>
     </table>
     
-    
     </section>
+
     
+

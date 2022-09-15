@@ -155,15 +155,15 @@ a:hover {
     margin: 20px;
   }
   
-  .first-child {
+  .social li:first-child {
     margin-top: 0
   }
   
-  .social .child {
+  .social li {
     margin-top: 10px
   }
   
-  .social .child a {
+  .social li a {
     display: block;
     background: #999999;
     color: #efefef;
@@ -344,7 +344,6 @@ th {
     border-radius: 5px;
 }
 
-/* .content-after {
+.content-after {
     display: none;
-    opacity: 0;
-} */
+}

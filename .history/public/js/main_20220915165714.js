@@ -1,17 +1,21 @@
-// $(function() {
-//     $('.social a').tooltip({
-//       placement: "right",
-//       container: 'body'
-//     });
-//   });
+$(function() {
+    $('.social a').tooltip({
+      placement: "right",
+      container: 'body'
+    });
+  });
 
-$(document).ready(function() {
-  $(".socialButton").click(function () {
-    console.log("button has been clicked")
-    $("#fbImage").animate({left: '300px'}, 500);
-  })
-})
+$(document).ready(function(){
 
+  $(".content-box").click(function() {
+    $(".content-box").animate({
+      width: '50px',
+    }, 1000);
+    $("content-after").show().animate({
+      opacity: "1"
+    }, 2000);
+  });
+});
 
 
 

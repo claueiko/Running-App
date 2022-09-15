@@ -1,9 +1,9 @@
-// $(function() {
-//     $('.social a').tooltip({
-//       placement: "right",
-//       container: 'body'
-//     });
-//   });
+$(function() {
+    $('.social a').tooltip({
+      placement: "right",
+      container: 'body'
+    });
+  });
 
 $(document).ready(function() {
   $(".socialButton").click(function () {

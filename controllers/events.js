@@ -15,6 +15,7 @@ const moment = require('moment');
 // CREATE
 // HTTP GET - Load Event From
 exports.event_create_get = (req, res) => {
+    
     // res.render("event/add");
             Region.find()
             .then(regions => {
@@ -130,3 +131,18 @@ exports.event_update_put = (req, res) => {
         console.log(err)
     })
 }
+
+
+// LIVE SEARCH - HTTP POST ATTEMPT NUMBER 952
+exports.event_search = (req, res) => {
+  let event = new Event(req.body);
+  console.log(event.nameEvent);
+  Event.find({ nameEvent: event.nameEvent })
+    .then((events) => {
+      res.render("event/index", { events: events, moment });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+};

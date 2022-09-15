@@ -25,23 +25,24 @@ exports.coach_trainingPlan_get = (req, res) => {
     })
 }
 
-// HTTP POST - PERFORMANCE
+// HTTP POST - TRAINING PLAN
 exports.coach_trainingPlan_post = (req, res) => {
-    console.log(req.query.id);
+    console.log(req.query.coachId);
 
     let trainingPlan = new TrainingPlan(req.body);
     trainingPlan
     .save()
     .then((trainingPlan) => {
-        coach.findById(req.body.coachId)
+        Coach.findById(req.body.coachId)
+
         .then((coach) => {
             coach.trainingPlan.push(trainingPlan)
             coach.save()
         })
-    res.redirect("/coach/index");
+    res.redirect("back");
     })
     .catch((err) => {
         console.log(err);
-        res.send("Try again later coachs controller line 115");
+        res.send("Try again later coaches controller line 45");
     });
 };

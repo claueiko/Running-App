@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const trainingPlanSchema = mongoose.Schema({
-weekBeginning: Date,
+name: String,
 monday: String,
 tuesday: String,
 wednesday: String,

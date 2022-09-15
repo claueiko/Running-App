@@ -61,7 +61,7 @@ exports.coach_create_post = (req, res) => {
 
 // HTTP Get - Coach index API
 exports.coach_index_get = (req, res) => {
-  Coach.find().populate("region").populate("athlete")
+  Coach.find().populate("region").populate("athlete").populate("trainingPlan")
     .then(coaches => {
       res.render("coach/index", { coaches, moment });
     })
@@ -78,9 +78,16 @@ exports.coach_show_get = (req, res) => {
   
   // Find the coach by that ID
   Coach.findById(req.query.id)
-    .populate("athlete").populate("region").populate("club")
-    .then(coach => {
-      res.render("coach/detail", { coach, moment });
+    .populate("athlete").populate("region").populate("club").populate("trainingPlan")
+    .then((coach) => {
+      //TRAINING PLAN
+      TrainingPlan.find()
+        .then((trainingPlan) => {
+          res.render("coach/detail", { coach, moment, trainingPlan });
+        })
+      .catch((err) => {
+        console.log(err);
+      });
     })
     .catch((err) => {
       console.log(err);

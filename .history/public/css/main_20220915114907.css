@@ -39,7 +39,7 @@ a:hover {
 .menu-nav:hover {
     margin-left: 25px;
     font-weight: 500; 
-    color: #FF0000;
+    color: grey;
 }
 
 
@@ -113,7 +113,7 @@ a:hover {
     border-radius: 10px;
 }
 .hero-button:hover {
-    background-color: #FF0000;
+    background-color: rgb(58, 43, 226);
     color: white
 }
 

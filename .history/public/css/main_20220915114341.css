@@ -12,7 +12,6 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #FF0000
 }
 
 
@@ -33,13 +32,8 @@ a:hover {
 }
 .menu-nav {
     margin-left: 25px;
-    font-weight: 500; 
-}
-
-.menu-nav:hover {
-    margin-left: 25px;
-    font-weight: 500; 
-    color: #FF0000;
+    font-weight: 500;
+    
 }
 
 
@@ -98,9 +92,9 @@ a:hover {
     margin-top: 20%;
 }
 
-/* .title:hover {
+.title:hover {
     color: #FF0000;
-} */
+}
 
 .subtitle {
     color:black;
@@ -113,7 +107,7 @@ a:hover {
     border-radius: 10px;
 }
 .hero-button:hover {
-    background-color: #FF0000;
+    background-color: rgb(58, 43, 226);
     color: white
 }
 
@@ -190,16 +184,12 @@ footer {
     color: white;
     padding: 130px 25px;
 }
-
 .footer-row {
     display: flex;
     justify-content: space-around;
 }
 .footer-column a {
     color: white;
-}
-.footer-column:hover a:hover {
-    color: grey;
 }
 .footer-text {
     text-align: center;

@@ -44,5 +44,7 @@ router.get("/coach/delete", coachCtrl.coach_delete_get);
 router.get("/coach/edit", coachCtrl.coach_edit_get);
 router.put("/coach/update", coachCtrl.coach_update_put);
 
+// SEARCH 
+router.post("/coach/search", coachCtrl.coach_search);
 
 module.exports = router;

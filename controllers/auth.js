@@ -25,11 +25,9 @@ exports.auth_signup_post = (req, res) => {
     user.password = hash;
 
     user.save()
-    .then(() => {
-        //THIS TO REDIRECT TO COACH OR ATHLETE AFTER SIGNUP
-        res.redirect("/coach/add");
-    })
-    .catch((err) => {
+       .then(() => { 
+        res.redirect("/");
+    }) .catch((err) => {
         console.log(err)
         res.send("Line 33 please try again later.")
     })

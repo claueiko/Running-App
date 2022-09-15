@@ -41,6 +41,7 @@ exports.athlete_create_post = (req, res) => {
   let imagePath = '/uploads/' + req.file.filename;
   let athlete = new Athlete(req.body);
   athlete.image = imagePath;
+  // CONNECTING USER TO ATHLETE!
   console.log(req.user._id);
   athlete.user = req.user._id;
   athlete
@@ -52,7 +53,7 @@ exports.athlete_create_post = (req, res) => {
             coach.save()
         })
       res.redirect("/athlete/index");
-    }) // TRYING TO CONNECT USER TO ATHLETE
+    }) 
 
     .catch((err) => {
       console.log(err);

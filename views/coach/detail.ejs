@@ -12,7 +12,20 @@
             <p>Region: <%= coach.region.nameRegion %></p>
             <p class="moment-class">Created: <%= moment(coach.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(coach.updatedAt).fromNow() %></p>
-            <a class="edit-button" href="/coach/edit?id=<%= coach._id %>">Edit profile</a>
+            <!-- Edit Delete Buttons -->
+            <% if(currentUser) { %>
+
+            <% if(currentUser._id.toString() === coach.user.toString()) { %> 
+              
+                 <p><a class="edit-button" href="/coach/edit?id=<%= coach.id %>"> Edit </a> </p>
+                 <p><a class="edit-button" href="/coach/delete?id=<%= coach.id %>"> Delete </a> </p>
+
+                 <% } else if(currentUser._id !== coach.user) { %>
+                    <p>logged in but not user</p>
+
+            <% } %>
+        <% } %>
+
         </div>
         <div class="coach-column">
             <p class="name">Club Information</p>
@@ -22,7 +35,8 @@
                 <p>Website: <%= club.websiteClub %> </p>
              <% }) %>
             
-            <a class="edit-button" href="/club/add">Add Club</a>
+        
+        
             
             
         </div>

@@ -38,17 +38,15 @@ exports.coach_create_get = (req, res) => {
 
 
 //HTTP POST - Coach
-
 exports.coach_create_post = (req, res) => {
   
-  // Saving the data into the database
-
- //Images 
-
+// Saving the data into the database
+//Images 
   console.log(req.file);
   let imagePath = '/uploads/' + req.file.filename;
   let coach = new Coach(req.body);
   coach.image = imagePath;
+//CONNECTING USER TO COACH
   console.log(req.user._id);
   coach.user = req.user._id;
   coach

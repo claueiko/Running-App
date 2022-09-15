@@ -22,7 +22,7 @@ HTML, CSS, jQuery, MongoDB and NodeJS.
 I didn't think I was into backend (not as much as frontend) and this project helped me fully understand how it works. I have learned so much in the last week, I feel like I can build anything LOL - Of course not. I am very pleased with the results we achieved in one week only.
 
 ## Difficulties
-Connecting multiple Collections was a bit tricky, as well as using Multer (a dependency for uploading images). I couldn't do it without my instructor's help **Saad Iqbal**.
+Connecting multiple Collections was a bit tricky, as well as using Multer (a dependency for uploading images). I couldn't do it without my instructor's help **Saad Iqbal**. Also, I really like Bootstrap but there was an update while building the app that changed all our styles.
 
 ## To do in the future
 Redirect users after registering to a new Athlete or Coach add page.

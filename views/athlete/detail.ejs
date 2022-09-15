@@ -14,7 +14,24 @@
             <p>Coach:    <a href="/coach/detail?id=<%= athlete.coach._id %>"><%= athlete.coach.nameCoach %></a></p>
             <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
-            <a class="edit-button" href="/athlete/edit?id=<%= athlete.id %>">Edit profile</a>
+
+            <% if(currentUser) { %>
+                
+                
+
+            <% if(currentUser._id.toString() == athlete.user.toString()) { %> 
+              
+                 <p><a lass="edit-button" href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </p>
+                 <p><a lass="edit-button" href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </p>
+                 <% } %>
+                <% } %>
+
+
+         
+
+
+
+
         </div>
         <div class="coach-column">
             <h2 class="name">PBs</h2>

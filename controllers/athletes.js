@@ -41,6 +41,8 @@ exports.athlete_create_post = (req, res) => {
   let imagePath = '/uploads/' + req.file.filename;
   let athlete = new Athlete(req.body);
   athlete.image = imagePath;
+  console.log(req.user._id);
+  athlete.user = req.user._id;
   athlete
     .save()
     .then((athlete) => {

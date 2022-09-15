@@ -3,7 +3,7 @@ const { Athlete } = require("../models/Athlete");
 const { Coach } = require("../models/Coach");
 const { Region } = require("../models/Region");
 const { TrainingPlan } = require("../models/TrainingPlan")
-const User = require("../models/User");
+const { User } = require("../models/User");
 
 // Api to require moment library
 const moment = require("moment");
@@ -19,23 +19,25 @@ const moment = require("moment");
 exports.coach_create_get = (req, res) => {
   //Athletes?
   // TRYING TO CONNECT USER AND COACH
-  // User.find()
-  // .then(())
-  Athlete.find()
-  .then((athletes) => {
-    Region.find()
-      .then((regions) => {
-        res.render("coach/add", { regions ,athletes });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
+  User.find()
+  .then((users) => {
+      Athlete.find()
+        .then((athletes) => {
+          Region.find()
+            .then((regions) => {
+                res.render("coach/add", { regions, athletes, users });
+            })
+            .catch((err) => {
+            console.log(err);
+            });
+        })
+          .catch((err) => {
+          console.log(err);
+     })
+     .catch((err) => {
+      console.log(err)
+     })
   })
-  .catch((err) => {
-    console.log(err)
-  })
-  
 };
 
 

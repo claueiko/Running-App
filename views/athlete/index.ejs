@@ -26,8 +26,7 @@
         <th> Region </th>
         <!-- <th> Created At </th>
         <th> Updated At </th> -->
-        <th> Edit </th>
-        <th> Delete </th>
+      
     </tr>
 
     <% athletes.forEach(function(athlete) { %>
@@ -45,12 +44,6 @@
             <td><%= moment(athlete.updatedAt).fromNow() %></td> -->
 
             <!-- The lines below are creating an error - going to routes -->
-
-            <% if(!currentUser) { %> 
-                <% } else if(currentUser.userType == "athlete") { %>
-                 <td><a href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </td>
-                 <td><a href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </td>
-                 <% } %>
 
         </tr>
     <% }) %>

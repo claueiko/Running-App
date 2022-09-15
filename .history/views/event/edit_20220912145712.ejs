@@ -1,0 +1,50 @@
+<h1> Edit CLub </h1>
+
+<form method="POST" action="/athlete/update?_method=PUT">
+
+    <div>
+        <label>Name</label>
+        <input name="nameAthlete" type="text" value="<%= athlete.nameAthlete %>" />
+    </div>
+
+    <div>
+        <label>Email Address</label>
+        <input name="emailAddress" value="<%= athlete.emailAddress %>" />
+    </div>
+
+    <div>
+        <label>Gender</label>
+        <input name="gender" type="text" value="<%= athlete.performance %>" />
+    </div>
+
+    <div>
+        <label>Date of Birth</label>
+        <input name="dateOfBirth" type="date" value="<%= athlete.dateOfBirth %>" />
+    </div>
+
+
+    <div>
+        <label>Club</label>
+        <input name="club" type="text" value="<%= athlete.club %>" />
+    </div>
+
+    <div>
+        <label>Coach</label>
+        <input name="nameCoach" type="text" value="<%= athlete.nameCoach %>" />
+    </div>
+
+    <div>
+        <label>Event</label>
+        <input name="event" type="text" value="<%= athlete.event %>" />
+    </div>
+
+    <div>
+        <label>Region</label>
+        <input name="region" type="text" value="<%= athlete.region %>" />
+    </div>
+
+    <input type="hidden" name="id" value="<%= athlete._id %>" />
+
+    <button type="submit"> Update Athlete </button>
+
+</form>

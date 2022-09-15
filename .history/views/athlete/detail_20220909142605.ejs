@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <h3> <%= runner.name %> </h3>
+    </div>
+
+    <div> Email Address: <%= runner.emailAddress %> </div>
+    <div> Club: <%= runner.club %> </div>
+    <div> Created At: <%= moment(runner.createdAt).fromNow() %> </div>
+
+    <br>
+
+
+    <% runner.race.forEach(function(race) { %>
+
+    <hr />
+    <div>
+        <div> Race: <%= race.title %></div>
+        <div> Race: <%= race.content %></div>
+    </div>
+  <% }) %> 
+</div>

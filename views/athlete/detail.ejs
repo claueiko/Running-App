@@ -6,12 +6,13 @@
             <img class="profile-picture"src="..<%= athlete.image %>" alt="" width="200px" height="200px">
         </div>
         <div class="coach-column">
-            <h2 class="name">  <%= athlete.nameAthlete %> </h2> <br>
+            <p class="name">  <%= athlete.nameAthlete %> </p> <br>
             <p>Email: <%= athlete.emailAddress %> </p>
             <p>Gender:  <%= athlete.gender %> </p>
             <p>Age: <%= moment().diff(athlete.dateOfBirth, 'years') %> years old </p> </p>
             <p>Region: <%= athlete.region.nameRegion %> </p>
             <p>Coach:    <a href="/coach/detail?id=<%= athlete.coach._id %>"><%= athlete.coach.nameCoach %></a></p>
+            <br>
             <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
 
@@ -24,7 +25,7 @@
                  <p><a class="edit-button" href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </p>
 
                  <% } else if(currentUser._id !== athlete.user) { %>
-                    <p>logged in but not user</p>
+                    <p>Logged in but not User (test)</p>
 
             <% } %>
             <% } %>
@@ -46,21 +47,36 @@
             <tr>
                 <th>Activity</th>
                 <th>Distance in KM</th>
-                <th>Time</th>
+                <th>Time in Minutes</th>
                 <th>Location</th>
                 <th>Date</th>
                 <th></th>
             </tr>
             
             <tr>
+                <% if(currentUser) { %>
+
+                <% if(currentUser._id.toString() === athlete.user.toString()) { %> 
                 <form method="POST" action="/performance/add"> 
                 <td><input class="performance-field" type="text" name="nameActivity" id=""></td>
                 <td><input class="performance-field" type="text" name="distanceActivity" id=""></td>
                 <td><input class="performance-field" type="text" name="timeActivity" id=""></td>
                 <td><input class="performance-field" type="text" name="locationActivity" id=""></td>
                 <td><input class="performance-field" type="date" name="dateActivity" id=""></td>
-                <td><button class="performance-submit" type="submit"  id="">Add</button></td>
+
+      
+              
+                 <td><button class="performance-submit" type="submit"  id="">Add</button></td>
                     <input type="hidden" name="athleteId" value="<%= athlete._id %>">
+                 <% } else if(currentUser._id !== athlete.user) { %>
+                    
+
+            <% } %>
+            <% } %>
+
+
+
+                
                 </form>
             </tr>
             <!-- for each goes here? -->

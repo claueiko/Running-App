@@ -1,5 +1,5 @@
 <section class="coach-page">
-<h2 class="page-title"> ATHLETES</h2>
+<p class="page-title"> ATHLETES</p>
 
 <!-- SEARCH -->
 
@@ -14,7 +14,7 @@
 
     <!-- End of SEARCH -->
 
-<table class="table table-striped">
+<table class="table table-striped index-table">
     <tr>
         <th> Name </th>
         <th> Gender </th>
@@ -26,7 +26,7 @@
     <% athletes.forEach(function(athlete) { %>
 
         <tr>
-            <td><a href="/athlete/detail?id=<%= athlete._id %>"> <h3> <%= athlete.nameAthlete %> </h3></a> </td>
+            <td><a href="/athlete/detail?id=<%= athlete._id %>"> <p> <%= athlete.nameAthlete %> </p></a> </td>
             <td><%= athlete.gender %></td>
             <td><%= moment().diff(athlete.dateOfBirth, 'years') %> years</td>
             <td><%= athlete.coach.nameCoach %></td>

@@ -19,13 +19,12 @@ const moment = require("moment");
 exports.coach_create_get = (req, res) => {
   //Athletes?
   // TRYING TO CONNECT USER AND COACH
-  User.find()
-  .then((users) => {
+  
       Athlete.find()
         .then((athletes) => {
           Region.find()
             .then((regions) => {
-                res.render("coach/add", { regions, athletes, users });
+                res.render("coach/add", { regions, athletes,  });
             })
             .catch((err) => {
             console.log(err);
@@ -33,12 +32,9 @@ exports.coach_create_get = (req, res) => {
         })
           .catch((err) => {
           console.log(err);
+   
      })
-     .catch((err) => {
-      console.log(err)
-     })
-  })
-};
+  }
 
 
 //HTTP POST - Coach
@@ -51,9 +47,10 @@ exports.coach_create_post = (req, res) => {
 
   console.log(req.file);
   let imagePath = '/uploads/' + req.file.filename;
-  
   let coach = new Coach(req.body);
   coach.image = imagePath;
+  console.log(req.user._id);
+  coach.user = req.user._id;
   coach
     .save()
     .then(() => {

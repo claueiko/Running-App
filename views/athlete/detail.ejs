@@ -15,19 +15,19 @@
             <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
 
+
             <% if(currentUser) { %>
-                
-                
 
-            <% if(currentUser._id.toString() == athlete.user.toString()) { %> 
+                <% if(currentUser._id.toString() === athlete.user.toString()) { %> 
               
-                 <p><a lass="edit-button" href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </p>
-                 <p><a lass="edit-button" href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </p>
-                 <% } %>
-                <% } %>
+                 <p><a class="edit-button" href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </p>
+                 <p><a class="edit-button" href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </p>
 
+                 <% } else if(currentUser._id !== athlete.user) { %>
+                    <p>logged in but not user</p>
 
-         
+            <% } %>
+            <% } %>
 
 
 
@@ -78,11 +78,5 @@
 
     </div>
     <br><br><br>
-    <p class="page-title">EVENTS</p>
-    <div class="training-plan">
-        <p>All Events go here</p>
-    </div>
-
-
 </section>
 

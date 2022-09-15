@@ -9,14 +9,17 @@ const coachSchema = mongoose.Schema(
     phoneNumber: String,
     //image
     image: {
-        type: String,
+      type: String,
     },
-    region: 
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Region"
-        },
-    
+    region: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Region",
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+
     club: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -29,10 +32,12 @@ const coachSchema = mongoose.Schema(
         ref: "Athlete",
       },
     ],
-    trainingPlan: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'TrainingPlan'
-  }],
+    trainingPlan: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "TrainingPlan",
+      },
+    ],
   },
   { timestamps: true }
 );

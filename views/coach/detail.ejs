@@ -6,23 +6,47 @@
             <img class="profile-picture" src="..<%= coach.image %>" alt="" width="200px" height="200px">
         </div>
         <div class="coach-column">
-            <h2 class="name"> <%= coach.nameCoach %></h2> <br>
+            <p class="name"> <%= coach.nameCoach %></p> <br>
             <p>Email: <%= coach.emailAddressCoach %></p>
             <p>Phone Number: <%= coach.phoneNumber %></p>
-            <p>Region: <%= coach.region.nameRegion %></p>
+            <p>Region: <%= coach.region.nameRegion %></p> <br>
             <p class="moment-class">Created: <%= moment(coach.createdAt).fromNow() %></p>
             <p class="moment-class">Last Updated: <%= moment(coach.updatedAt).fromNow() %></p>
-            <a class="edit-button" href="/coach/edit?id=<%= coach._id %>">Edit profile</a>
+            <!-- Edit Delete Buttons -->
+            <% if(currentUser) { %>
+
+            <% if(currentUser._id.toString() === coach.user.toString()) { %> 
+              
+                 <p><a class="edit-button" href="/coach/edit?id=<%= coach.id %>"> Edit </a> </p>
+                 <p><a class="edit-button" href="/coach/delete?id=<%= coach.id %>"> Delete </a> </p>
+
+                 <% } else if(currentUser._id !== coach.user) { %>
+                    <p>logged in but not user</p>
+
+            <% } %>
+        <% } %>
+
         </div>
         <div class="coach-column">
-            <p class="name">Club Information</p>
+            <p class="name">Club Information</p><br>
             <% coach.club.forEach(function(club) { %>
                 <p>Club: <%= club.nameClub %> </p>
                 <p>Email: <%= club.emailAddressClub %> </p>
                 <p>Website: <%= club.websiteClub %> </p>
              <% }) %>
             
-            <a class="edit-button" href="/club/add">Add Club</a>
+             <% if(currentUser) { %>
+
+            <% if(currentUser._id.toString() === coach.user.toString()) { %> 
+              
+                 <p><a class="edit-button" href="/club/add"> Add Club </a> </p>
+                 <% } else if(currentUser._id !== coach.user) { %>
+               
+
+            <% } %>
+        <% } %>
+        
+        
             
             
         </div>
@@ -48,7 +72,12 @@
             </tr>
             
             <tr>
-                <form method="POST" action="/trainingPlan/add"> 
+
+                <% if(currentUser) { %>
+
+            <% if(currentUser._id.toString() === coach.user.toString()) { %> 
+              
+                 <form method="POST" action="/trainingPlan/add"> 
                 <td><input class="training-field" type="text" name="name" id=""></td>
                 <td><input class="training-field" type="text" name="monday" id=""></td>
                 <td><input class="training-field" type="text" name="tuesday" id=""></td>
@@ -60,6 +89,14 @@
                 <td><button class="performance-submit" type="submit"  id="">Add</button></td>
                     <input type="hidden" name="coachId" value="<%= coach._id %>">
                 </form>
+                 <% } else if(currentUser._id !== coach.user) { %>
+                   
+
+            <% } %>
+        <% } %>
+
+
+                
             </tr>
             <!-- for each goes here? -->
             <% coach.trainingPlan.forEach(function(trainingPlan) { %>
@@ -72,7 +109,20 @@
                 <td> <%= trainingPlan.friday %> </td>
                 <td> <%= trainingPlan.saturday %> </td>
                 <td> <%= trainingPlan.sunday %> </td>
-                <td><a href="/trainingPlan/delete?id=<%= trainingPlan._id %>">Delete</a></td>
+
+                <% if(currentUser) { %>
+
+            <% if(currentUser._id.toString() === coach.user.toString()) { %> 
+              
+                  <td><a href="/trainingPlan/delete?id=<%= trainingPlan._id %>">Delete</a></td>
+
+                 <% } else if(currentUser._id !== coach.user) { %>
+                   
+
+            <% } %>
+        <% } %>
+
+               
             </tr>
             <% }) %>
                 
@@ -82,33 +132,17 @@
     <br><br><br>
     <p class="page-title">ATHLETES</p>
     <div class="training-plan">
-        <p>List of Athletes go here</p>
+     
         
             <% coach.athlete.forEach(function(athlete) { %>
-                <a href="/athlete/detail?id=<%= athlete._id %>"> <h3> <%= athlete.nameAthlete %> <span class="list-age"> Age: <%= moment().diff(athlete.dateOfBirth, 'years') %></span>  </h3></a>
+                <a href="/athlete/detail?id=<%= athlete._id %>"> <p> <%= athlete.nameAthlete %> <span class="list-age"> Age: <%= moment().diff(athlete.dateOfBirth, 'years') %></span>  </p></a>
                
             <% }) %>
         
 
     </div>
 
-
-    <!--  new one: -->
-    
-    <br><br><br>
-    <p class="page-title">EVENTS</p>
-    <div class="training-plan">
-        <p>All Events go here</p>
-    </div>
-</section>
+<br><br><br>
+ 
 
 
-
-
-
-
-
-<!-- Clubs! -->
-
-
-<!-- Training Plan -->

@@ -1,7 +1,7 @@
 
 <section class="coach-page">
 
-    <h2 class="page-title"> CLUBS </h2>
+    <p class="page-title"> CLUBS </p>
     
     <table class="table table-striped">
         <tr>
@@ -21,7 +21,7 @@
         <% clubs.forEach(function(club) { %>
         
         <tr>
-            <td> <a href="/club/detail?id=<%= club._id %>"> <h3><%= club.nameClub %></h3> </a></td>
+            <td> <a href="/club/detail?id=<%= club._id %>"> <p><%= club.nameClub %></p> </a></td>
             <td> <%= club.emailAddressClub %></td>
             <td> <%= club.linkClub %></td>
             <td> <%= club.region.nameRegion %></td>

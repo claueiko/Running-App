@@ -360,3 +360,11 @@ th {
     display: none;
     opacity: 0;
 } */
+
+.mediaIcon {
+    position: absolute; 
+}
+.mediaImage {
+    position: absolute;
+    /* visibility: hidden; */
+}

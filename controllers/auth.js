@@ -26,7 +26,7 @@ exports.auth_signup_post = (req, res) => {
 
     user.save()
        .then(() => { 
-        res.redirect("/");
+        res.redirect("/signin");
     }) .catch((err) => {
         console.log(err)
         res.send("Line 33 please try again later.")

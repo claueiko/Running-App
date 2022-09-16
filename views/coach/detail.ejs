@@ -32,7 +32,7 @@
             <% coach.club.forEach(function(club) { %>
                 <p>Club: <%= club.nameClub %> </p>
                 <p>Email: <%= club.emailAddressClub %> </p>
-                <p>Website: <%= club.websiteClub %> </p>
+            <p>Website: <a target="_blank" href="<%= club.linkClub %> "><%= club.linkClub %></a></p>
              <% }) %>
             
              <% if(currentUser) { %>

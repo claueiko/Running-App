@@ -24,9 +24,9 @@ I didn't think I was into backend (not as much as frontend) and this project hel
 ## Difficulties
 Connecting multiple Collections was a bit tricky, as well as using Multer (a dependency for uploading images). I couldn't do it without my instructor's help **Saad Iqbal**. Also, I really like Bootstrap but there was an update while building the app that changed all our styles.
 
-## To do in the future
+## Future Enhancements 
 Redirect users after registering to a new Athlete or Coach add page.
-Create a profile page.
+Create a profile page. Make it responsive.
 
 ## Landing Page Screenshots
 ![image](https://media.git.generalassemb.ly/user/44792/files/f8167d6c-39fd-44b7-ab21-7a179bb97873)

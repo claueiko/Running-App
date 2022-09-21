@@ -39,10 +39,6 @@ const expressLayouts = require('express-ejs-layouts');
 const indexRouter = require('./routes/index');
 const athleteRouter = require('./routes/athletes');
 const coachRouter = require('./routes/coaches');
-const regionRouter = require('./routes/regions');
-const clubRouter = require('./routes/clubs');
-const eventRouter = require('./routes/events');
-const authRouter = require('./routes/auth');
 
 
  
@@ -75,10 +71,6 @@ app.use(function(req, res, next){
 app.use('/', indexRouter);
 app.use('/', athleteRouter);
 app.use('/', coachRouter);
-app.use("/", regionRouter);
-app.use('/', clubRouter);
-app.use('/', eventRouter);
-app.use('/', authRouter);
 
 
 
@@ -101,4 +93,3 @@ mongoose.connect(process.env.MongoDBURL,
 app.listen(PORT, () => {
     console.log(`Corrida is running on PORT ${PORT}`);
 });
-

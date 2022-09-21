@@ -101,4 +101,3 @@ mongoose.connect(process.env.MongoDBURL,
 app.listen(PORT, () => {
     console.log(`Corrida is running on PORT ${PORT}`);
 });
-

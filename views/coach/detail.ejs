@@ -1,0 +1,148 @@
+
+<section class="coach-page">
+    <p class="page-title">COACH</p>
+    <div class="coach-row1">
+        <div class="coach-column-photo">
+            <img class="profile-picture" src="..<%= coach.image %>" alt="" width="200px" height="200px">
+        </div>
+        <div class="coach-column">
+            <p class="name"> <%= coach.nameCoach %></p> <br>
+            <p>Email: <%= coach.emailAddressCoach %></p>
+            <p>Phone Number: <%= coach.phoneNumber %></p>
+            <p>Region: <%= coach.region.nameRegion %></p> <br>
+            <p class="moment-class">Created: <%= moment(coach.createdAt).fromNow() %></p>
+            <p class="moment-class">Last Updated: <%= moment(coach.updatedAt).fromNow() %></p>
+            <!-- Edit Delete Buttons -->
+            <% if(currentUser) { %>
+
+            <% if(currentUser._id.toString() === coach.user.toString()) { %> 
+              
+                 <p><a class="edit-button" href="/coach/edit?id=<%= coach.id %>"> Edit </a> </p>
+                 <p><a class="edit-button" href="/coach/delete?id=<%= coach.id %>"> Delete </a> </p>
+
+                 <% } else if(currentUser._id !== coach.user) { %>
+                    <p>logged in but not user</p>
+
+            <% } %>
+        <% } %>
+
+        </div>
+        <div class="coach-column">
+            <p class="name">Club Information</p><br>
+            <% coach.club.forEach(function(club) { %>
+                <p>Club: <%= club.nameClub %> </p>
+                <p>Email: <%= club.emailAddressClub %> </p>
+            <p>Website: <a target="_blank" href="<%= club.linkClub %> "><%= club.linkClub %></a></p>
+             <% }) %>
+            
+             <% if(currentUser) { %>
+
+            <% if(currentUser._id.toString() === coach.user.toString()) { %> 
+              
+                 <p><a class="edit-button" href="/club/add"> Add Club </a> </p>
+                 <% } else if(currentUser._id !== coach.user) { %>
+               
+
+            <% } %>
+        <% } %>
+        
+        
+            
+            
+        </div>
+    </div>
+    <br><br><br>
+    <p class="page-title">TRAINING PLAN</p>
+
+
+   <div class="training-plan">
+
+        <!-- Attempt training plan add -->
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Mon </th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+                <th></th>
+            </tr>
+            
+            <tr>
+
+                <% if(currentUser) { %>
+
+            <% if(currentUser._id.toString() === coach.user.toString()) { %> 
+              
+                 <form method="POST" action="/trainingPlan/add"> 
+                <td><input class="training-field" type="text" name="name" id=""></td>
+                <td><input class="training-field" type="text" name="monday" id=""></td>
+                <td><input class="training-field" type="text" name="tuesday" id=""></td>
+                <td><input class="training-field" type="text" name="wednesday" id=""></td>
+                <td><input class="training-field" type="text" name="thursday" id=""></td>
+                <td><input class="training-field" type="text" name="friday" id=""></td>
+                <td><input class="training-field" type="text" name="saturday" id=""></td>
+                <td><input class="training-field" type="text" name="sunday" id=""></td>
+                <td><button class="performance-submit" type="submit"  id="">Add</button></td>
+                    <input type="hidden" name="coachId" value="<%= coach._id %>">
+                </form>
+                 <% } else if(currentUser._id !== coach.user) { %>
+                   
+
+            <% } %>
+        <% } %>
+
+
+                
+            </tr>
+            <!-- for each goes here? -->
+            <% coach.trainingPlan.forEach(function(trainingPlan) { %>
+            <tr>
+                <td> <%= trainingPlan.name %> </td>
+                <td> <%= trainingPlan.monday %> </td>
+                <td> <%= trainingPlan.tuesday %> </td>
+                <td> <%= trainingPlan.wednesday %> </td>
+                <td> <%= trainingPlan.thursday %> </td>
+                <td> <%= trainingPlan.friday %> </td>
+                <td> <%= trainingPlan.saturday %> </td>
+                <td> <%= trainingPlan.sunday %> </td>
+
+                <% if(currentUser) { %>
+
+            <% if(currentUser._id.toString() === coach.user.toString()) { %> 
+              
+                  <td><a href="/trainingPlan/delete?id=<%= trainingPlan._id %>">Delete</a></td>
+
+                 <% } else if(currentUser._id !== coach.user) { %>
+                   
+
+            <% } %>
+        <% } %>
+
+               
+            </tr>
+            <% }) %>
+                
+        </table>
+
+    </div>
+    <br><br><br>
+    <p class="page-title">ATHLETES</p>
+    <div class="training-plan">
+     
+        
+            <% coach.athlete.forEach(function(athlete) { %>
+                <a href="/athlete/detail?id=<%= athlete._id %>"> <p> <%= athlete.nameAthlete %> <span class="list-age"> Age: <%= moment().diff(athlete.dateOfBirth, 'years') %></span>  </p></a>
+               
+            <% }) %>
+        
+
+    </div>
+
+<br><br><br>
+ 
+
+

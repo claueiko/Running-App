@@ -1,0 +1,43 @@
+
+<section class="coach-page">
+
+
+<p class="page-title"> COACHES</p>
+
+    <!-- SEARCH -->
+
+   <form action="/coach/search" method="POST">
+        <div class="form-group search-form">
+            
+            <input placeholder="Search by Coach Name" type="text" name="nameCoach"  class="form-control form-field search-field">
+        
+        <button type="submit" class="search-button">Search</button>
+        </div>
+    </form><br>
+
+    <!-- End of SEARCH -->
+
+
+<table class="table table-striped">
+    <tr>
+        <th> Name</th>
+        <th> Email</th>
+        <th> Phone Number</th>
+        <th> Region </th>
+      
+    </tr>
+
+    <% coaches.forEach(function(coach) { %>
+    
+    <tr>
+        <td> <a href="/coach/detail?id=<%= coach._id %>"> <p><%= coach.nameCoach %></p> </a></td>
+        <td> <%= coach.emailAddressCoach %></td>
+        <td> <%= coach.phoneNumber %></td>
+        <td> <%= coach.region.nameRegion %></td>
+       
+       
+    </tr>
+    <% }) %>
+</table>
+
+</section>

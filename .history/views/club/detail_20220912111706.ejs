@@ -1,0 +1,47 @@
+
+<section class="club-page">
+    <p class="page-title">CLUB</p>
+    <div class="club-row1">
+        <div class="club-column-photo">
+            <img class="profile-picture"src="/images/avatar.jpeg" alt="" width="200px">
+        </div>
+        <div class="club-column">
+            <h2 class="name"> <%= club.nameClub %></h2> <br>
+            <p>Email: <%= club.emailAddressClub %></p>
+            <p>Club Website: <%= club.websiteClub %></p>
+            <p>Region: <%= club.region %> </p>
+            <p class="moment-class">Founded: <%= moment(club.createdAt).fromNow() %></p>
+            <p class="moment-class">Last Updated: <%= moment(club.updatedAt).fromNow() %></p>
+            <a class="edit-button" href="/club/edit?id=<%= club._id %>">Edit profile</a>
+        </div>
+        <div class="club-column">
+            <p>Club Information</p>
+        </div>
+    </div>
+    <br><br><br>
+    <p class="page-title">TRAINING PLANS</p>
+    <div class="training-plan">
+        <p>Training plans go here</p>
+    </div>
+    <br><br><br>
+    <p class="page-title">ATHLETES</p>
+    <div class="training-plan">
+        <p>List of Athletes go here</p>
+    </div>
+    <br><br><br>
+    <p class="page-title">UPCOMING EVENTS</p>
+    <div class="training-plan">
+        <p>List of Events go here</p>
+    </div>
+</section>
+
+
+
+
+
+<br>
+
+<!-- Clubs! -->
+
+
+<!-- Training Plan -->

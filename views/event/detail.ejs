@@ -1,0 +1,27 @@
+<section class="coach-page">
+    <p class="page-title">EVENT</p>
+
+    <div class="coach-row1">
+    
+    <div class="event-column">
+        <p class="name">  <%= event.nameEvent %> </p> <br>
+        <p>Email: <%= event.emailAddressEvent %> </p>
+        <p>Date:  <%= moment(event.dateEvent).format('LL') %> </p>
+        <p>Address: <%= event.addressEvent %> </p>
+
+        <p class="moment-class">Created: <%= moment(event.createdAt).fromNow() %></p>
+        <p class="moment-class">Last Updated: <%= moment(event.updatedAt).fromNow() %></p>
+        <a class="edit-button" href="/event/edit?id=<%= event._id %>">Edit Event</a>
+    </div>
+</div>
+<br><br><br>
+    <div class="event-row">
+     <a target="_blank" href="<%= event.linkEvent %> " class="event-link">Sign up</a>
+
+    </div>
+
+<br><br><br>
+
+
+
+</section>

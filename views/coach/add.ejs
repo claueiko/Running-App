@@ -1,0 +1,78 @@
+
+<section class="coach-page">
+<p class="page-title">NEW COACH</p>
+
+<form action="/coach/add" method="POST" class="form" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" name="nameCoach" id="" class="form-control form-field">
+    </div><br>
+
+
+    <div class="form-group">
+        <label for="">Email Address</label>
+        <input type="text" name="emailAddressCoach" id="" class="form-control form-field">
+    </div><br>
+
+     <div class="form-group">
+        <label for="">Phone Number</label>
+        <input type="text" name="phoneNumber" id="" class="form-control form-field">
+    </div><br>
+
+
+    <!-- Get Regions from Database -->
+    <div class="form-group">
+        <label for="">Region</label>
+        <select name="region" class="form-control form-field">
+            <% regions.forEach(function (region){ %>
+                <option value="<%= region._id %>"> <%= region.nameRegion %> </option>
+            <% })  %>
+        </select>
+    </div><br>
+
+    <!-- IMAGE UPLOAD -->
+    <label for="">Profile picture</label><br>
+    <input type="file" class="form-control-file form-field" id="image" name="image"><br>
+
+
+    <!-- DROPDOWN TO ADD REGION! -->
+     <!-- <div class="form-group">
+        <label for="">Region</label>
+        <select name="region" id="" class="form-control form-field">
+            <option value="">Choose your region</option>
+            <option value="greater-london">Greater London</option>
+            <option value="south-east">South East</option>
+            <option value="south-west">South West</option>
+            <option value="west-midlands">West Midlands</option>
+            <option value="north-west">North West</option>
+            <option value="north-east">North East</option>
+            <option value="yorkshire-and-the-humbler">Yorkshire and the Humbler</option>
+            <option value="east-midlands">East Midlands</option>
+            <option value="east-of-england">East of England</option>
+
+        </select>
+        
+    </div> -->
+    <br>
+
+
+<!-- 
+      <div class="form-group">
+        <label for="">Region</label>
+        <input type="text" name="region" id="" class="form-control form-field">
+    </div><br> -->
+
+
+    <!-- <div class="form-group">
+        <label for="">Training Plan</label>
+        <input type="text" name="trainingPlan" id="" class="form-control form-field">
+    </div><br> -->
+
+    <input type="submit" class="submit-button" name="Create Coach"></input>
+
+</form>
+
+</section>
+
+

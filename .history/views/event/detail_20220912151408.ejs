@@ -1,0 +1,96 @@
+<section class="coach-page">
+    <p class="page-title">EVENT</p>
+
+    <div class="coach-row1">
+    <div class="coach-column-photo">
+        <img class="profile-picture"src="/images/avatar.jpeg" alt="" width="200px">
+    </div>
+    <div class="coach-column">
+        <h2 class="name">  <%= event.nameEvent %> </h2> <br>
+        <p>Email: <%= event.emailAddressEvent %> </p>
+        <p>Gender:  <%= event.dateEvent %> </p>
+        <p>Address: <%= event.addressEvent %> </p>
+
+        <p>Coach: <%= event.nameCoach %> </p>
+        <p>Event: <%= event.event %> </p>
+
+        <p class="moment-class">Created: <%= moment(event.createdAt).fromNow() %></p>
+        <p class="moment-class">Last Updated: <%= moment(event.updatedAt).fromNow() %></p>
+        <a class="edit-button" href="#">Edit profile</a>
+    </div>
+    <div class="coach-column">
+        <p>Recent Activity</p>
+    </div>
+</div>
+<br><br><br>
+<p class="page-title">Athletes</p>
+<div class="training-plan">
+    <table class="table table-striped">
+        <tr>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Gender </th>
+            <th> Age </th>
+            <th> Club </th>
+            <th> Coach </th>
+            <th> Region </th>
+            <!-- <th> Created At </th>
+            <th> Updated At </th> -->
+            <th> Edit </th>
+            <th> Delete </th>
+        </tr>
+    
+        <% athletes.forEach(function(athlete) { %>
+    
+            <tr>
+                <td><a href="/athlete/detail?id=<%= athlete._id %>"> <%= athlete.nameAthlete %> </a> </td>
+                <td><%= athlete.emailAddress %></td>
+                <td><%= athlete.gender %></td>
+                <td><%= moment().diff(athlete.dateOfBirth, 'years') %> years</td>
+                <td><%= athlete.club %></td>
+                <td><%= athlete.coach.nameCoach %></td>
+                <td><%= athlete.region.nameRegion %></td>
+                <!-- <td><%= moment(athlete.createdAt).fromNow() %></td>
+                <td><%= moment(athlete.updatedAt).fromNow() %></td> -->
+    
+                <td><a href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </td>
+                <td><a href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </td>
+            </tr>
+        <% }) %>
+    </table>
+</div>
+<br><br><br>
+<p class="page-title">PERFORMANCES</p>
+<div class="training-plan">
+    <p>All Performances go here</p>
+</div>
+
+
+</section>
+
+<!-- <div>
+<div>
+    <h3> <%= event.nameEvent %> </h3>
+</div>
+
+<div> Email Address: <%= event.emailAddress %> </div>
+<div> Gender: <%= event.gender %> </div>
+<div> Age: <%= event.dateOfBirth %> </div>
+<div> Club: <%= event.club %> </div>
+<div> Coach: <%= event.nameCoach %> </div>
+<div> Event: <%= event.event %> </div>
+<div> Event: <%= event.region %> </div>
+<div> Created At: <%= moment(event.createdAt).fromNow() %> </div>
+
+<br>
+
+
+<% event.event.forEach(function(event) { %>
+
+<hr /> -->
+<!-- <div> - I may need to delete this later.
+    <div> Event: <%= event.event %></div>
+    <div> Distance: <%= race.distance %></div>
+</div>
+<% }) %> 
+</div> -->

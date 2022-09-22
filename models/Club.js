@@ -6,21 +6,21 @@ const clubSchema = mongoose.Schema(
     nameClub: String,
     emailAddressClub: String,
     linkClub: String,
-    region: 
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Region"
-        },
-    athlete: 
+    region: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Region",
+    },
+    athlete: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Athlete",
+    },
+
+    coach: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Athlete",
+        ref: "Coach",
       },
-    
-    coach: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Coach'
-    }],
+    ],
   },
   { timestamps: true }
 );

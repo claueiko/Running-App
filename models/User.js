@@ -1,36 +1,49 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
-const userSchema = mongoose.Schema({
+const userSchema = mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: true,
-        minlength: [3, "First Name must be more than 3 characters"],
-        maxlength: [99, "Dude, chill out"]
+      type: String,
+      required: true,
+      minlength: [3, "First Name must be more than 3 characters"],
+      maxlength: [99, "Dude, chill out"],
     },
-    emailAddress:{
-        type: String,
-        required: true,
-        lowercase: true,
-        unique: true
+    emailAddress: {
+      type: String,
+      required: true,
+      lowercase: true,
+      unique: true,
     },
     password: {
-        type: String,
-        required: true,
-        minlength: [6, "Your password is too weak... send it on some hill sessions a come back with more characters"]
+      type: String,
+      required: true,
+      minlength: [
+        6,
+        "Your password is too weak... send it on some hill sessions a come back with more characters",
+      ],
+    },
+    athlete: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Athlete",
+    },
+    coach: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Coach",
     },
     userType: String,
-},
-{
-    timestamps: true
-});
+  },
 
-userSchema.methods.verifyPassword = function(password) {
-    console.log("password from User: " + password);
-    console.log("password from Database: " + this.password)
-    return bcrypt.compareSync(password, this.password);
-}
+  {
+    timestamps: true,
+  }
+);
 
+userSchema.methods.verifyPassword = function (password) {
+  console.log("password from User: " + password);
+  console.log("password from Database: " + this.password);
+  return bcrypt.compareSync(password, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
 

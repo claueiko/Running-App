@@ -14,15 +14,12 @@
             <p class="moment-class">Last Updated: <%= moment(coach.updatedAt).fromNow() %></p>
             <!-- Edit Delete Buttons -->
             <% if(currentUser) { %>
-
             <% if(currentUser._id.toString() === coach.user.toString()) { %> 
               
                  <p><a class="edit-button" href="/coach/edit?id=<%= coach.id %>"> Edit </a> </p>
                  <p><a class="edit-button" href="/coach/delete?id=<%= coach.id %>"> Delete </a> </p>
-
                  <% } else if(currentUser._id !== coach.user) { %>
                     <p>logged in but not user</p>
-
             <% } %>
         <% } %>
 
@@ -32,17 +29,15 @@
             <% coach.club.forEach(function(club) { %>
                 <p>Club: <%= club.nameClub %> </p>
                 <p>Email: <%= club.emailAddressClub %> </p>
-                <p>Website: <%= club.websiteClub %> </p>
+            <p>Website: <a target="_blank" href="<%= club.linkClub %> "><%= club.linkClub %></a></p>
              <% }) %>
             
              <% if(currentUser) { %>
-
             <% if(currentUser._id.toString() === coach.user.toString()) { %> 
               
                  <p><a class="edit-button" href="/club/add"> Add Club </a> </p>
                  <% } else if(currentUser._id !== coach.user) { %>
                
-
             <% } %>
         <% } %>
         
@@ -74,7 +69,6 @@
             <tr>
 
                 <% if(currentUser) { %>
-
             <% if(currentUser._id.toString() === coach.user.toString()) { %> 
               
                  <form method="POST" action="/trainingPlan/add"> 
@@ -91,7 +85,6 @@
                 </form>
                  <% } else if(currentUser._id !== coach.user) { %>
                    
-
             <% } %>
         <% } %>
 
@@ -109,19 +102,14 @@
                 <td> <%= trainingPlan.friday %> </td>
                 <td> <%= trainingPlan.saturday %> </td>
                 <td> <%= trainingPlan.sunday %> </td>
-
                 <% if(currentUser) { %>
-
             <% if(currentUser._id.toString() === coach.user.toString()) { %> 
               
                   <td><a href="/trainingPlan/delete?id=<%= trainingPlan._id %>">Delete</a></td>
-
                  <% } else if(currentUser._id !== coach.user) { %>
                    
-
             <% } %>
         <% } %>
-
                
             </tr>
             <% }) %>
@@ -143,6 +131,3 @@
     </div>
 
 <br><br><br>
- 
-
-

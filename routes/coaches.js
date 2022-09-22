@@ -8,7 +8,6 @@ router.use(methodOverride("_method"));
 
 router.use(express.urlencoded({ extended: true }));
 
-
 // Images:
 const multer = require("multer");
 var storage = multer.diskStorage({
@@ -21,9 +20,8 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
-
 const coachCtrl = require("../controllers/coaches");
-const traningPlanCtrl = require("../controllers/trainingPlans")
+const traningPlanCtrl = require("../controllers/trainingPlans");
 
 //isLoggedIn middleware
 const isLoggedIn = require("../helper/isLoggedIn");
@@ -31,7 +29,7 @@ const isLoggedIn = require("../helper/isLoggedIn");
 //Routes
 // router.get("/coach/add", IsLoggedIn, coachCtrl.coach_create_get); to be added when log in etc is ready
 router.get("/coach/add", coachCtrl.coach_create_get);
-router.post("/coach/add", upload.single('image'), coachCtrl.coach_create_post);
+router.post("/coach/add", upload.single("image"), coachCtrl.coach_create_post);
 router.get("/coach/index", coachCtrl.coach_index_get);
 router.get("/coach/detail", coachCtrl.coach_show_get);
 
@@ -44,7 +42,7 @@ router.get("/coach/delete", coachCtrl.coach_delete_get);
 router.get("/coach/edit", coachCtrl.coach_edit_get);
 router.put("/coach/update", coachCtrl.coach_update_put);
 
-// SEARCH 
+// SEARCH
 router.post("/coach/search", coachCtrl.coach_search);
 
 module.exports = router;

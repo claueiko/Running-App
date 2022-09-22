@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 
 // Schema for Region Model:
-const regionSchema = mongoose.Schema(
-  {
-    nameRegion: String
+const regionSchema = mongoose.Schema({
+  nameRegion: String,
 });
 
 // Model for Region for Region Schema

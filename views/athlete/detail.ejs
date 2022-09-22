@@ -1,26 +1,91 @@
-<div>
-    <div>
-        <h3> <%= athlete.nameAthlete %> </h3>
+<section class="coach-page">
+        <p class="page-title">ATHLETE</p>
+
+        <div class="coach-row1">
+        <div class="coach-column-photo">
+            <img class="profile-picture"src="..<%= athlete.image %>" alt="" width="200px" height="200px">
+        </div>
+        <div class="coach-column">
+            <p class="name">  <%= athlete.nameAthlete %> </p> <br>
+            <p>Email: <%= athlete.emailAddress %> </p>
+            <p>Gender:  <%= athlete.gender %> </p>
+            <p>Age: <%= moment().diff(athlete.dateOfBirth, 'years') %> years old </p> </p>
+            <p>Region: <%= athlete.region.nameRegion %> </p>
+            <p>Coach:    <a href="/coach/detail?id=<%= athlete.coach._id %>"><%= athlete.coach.nameCoach %></a></p>
+            <br>
+            <p class="moment-class">Created: <%= moment(athlete.createdAt).fromNow() %></p>
+            <p class="moment-class">Last Updated: <%= moment(athlete.updatedAt).fromNow() %></p>
+
+
+            <% if(currentUser) { %>
+                <% if(currentUser._id.toString() === athlete.user.toString()) { %> 
+              
+                 <p><a class="edit-button" href="/athlete/edit?id=<%= athlete.id %>"> Edit </a> </p>
+                 <p><a class="edit-button" href="/athlete/delete?id=<%= athlete.id %>"> Delete </a> </p>
+                 <% } else if(currentUser._id !== athlete.user) { %>
+                    <p>Logged in but not User (test)</p>
+            <% } %>
+            <% } %>
+
+
+
+
+        </div>
+        <div class="coach-column">
+            <h2 class="name">PBs</h2>
+        </div>
     </div>
+    <br><br><br>
+    <p class="page-title">PERFORMANCES</p>
+    <div class="training-plan">
 
-    <div> Email Address: <%= athlete.emailAddress %> </div>
-    <div> Gender: <%= athlete.gender %> </div>
-    <div> Date of Birth: <%= athlete.dateOfBirth %> </div>
-    <div> Club: <%= athlete.club %> </div>
-    <div> Coach: <%= athlete.nameCoach %> </div>
-    <div> Event: <%= athlete.event %> </div>
-    <div> Event: <%= athlete.region %> </div>
-    <div> Created At: <%= moment(athlete.createdAt).fromNow() %> </div>
+        <!-- Attempt training plan add -->
+        <table class="table table-striped">
+            <tr>
+                <th>Activity</th>
+                <th>Distance in KM</th>
+                <th>Time in Minutes</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            
+            <tr>
+                <% if(currentUser) { %>
+                <% if(currentUser._id.toString() === athlete.user.toString()) { %> 
+                <form method="POST" action="/performance/add"> 
+                <td><input class="performance-field" type="text" name="nameActivity" id=""></td>
+                <td><input class="performance-field" type="text" name="distanceActivity" id=""></td>
+                <td><input class="performance-field" type="text" name="timeActivity" id=""></td>
+                <td><input class="performance-field" type="text" name="locationActivity" id=""></td>
+                <td><input class="performance-field" type="date" name="dateActivity" id=""></td>
+      
+              
+                 <td><button class="performance-submit" type="submit"  id="">Add</button></td>
+                    <input type="hidden" name="athleteId" value="<%= athlete._id %>">
+                 <% } else if(currentUser._id !== athlete.user) { %>
+                    
+            <% } %>
+            <% } %>
 
-    <br>
 
 
-    <% athlete.event.forEach(function(event) { %>
+                
+                </form>
+            </tr>
+            <!-- for each goes here? -->
+            <% athlete.performance.forEach(function(performance) { %>
+            <tr>
+                <td> <%= performance.nameActivity %> </td>
+                <td> <%= performance.distanceActivity %> KM </td>
+                <td> <%= performance.timeActivity %> minutes</td>
+                <td> <%= performance.locationActivity %> </td>
+                <td> <%= moment(performance.dateActivity).format('LL') %> </td>
+            </tr>
+            <% }) %>
+                
+        </table>
 
-    <hr />
-    <!-- <div> - I may need to delete this later.
-        <div> Event: <%= event.event %></div>
-        <div> Distance: <%= race.distance %></div>
-    </div> -->
-  <% }) %> 
-</div>
+    </div>
+    <br><br><br>
+</section>

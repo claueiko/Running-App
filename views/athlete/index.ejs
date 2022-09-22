@@ -1,39 +1,37 @@
 <section class="coach-page">
-    <p class="page-title"> ATHLETES</p>
-    
-    <!-- SEARCH -->
-    
-       <form action="/athlete/search" method="POST">
-            <div class="form-group search-form">
-                
-                <input placeholder="Search by Athlete Name" type="text" name="nameAthlete"  class="form-control form-field search-field">
+<p class="page-title"> ATHLETES</p>
+
+<!-- SEARCH -->
+
+   <form action="/athlete/search" method="POST">
+        <div class="form-group search-form">
             
-            <button type="submit" class="search-button">Search</button>
-            </div>
-        </form><br>
-    
-        <!-- End of SEARCH -->
-    
-    <table class="table table-striped index-table">
+            <input placeholder="Search by Athlete Name" type="text" name="nameAthlete"  class="form-control form-field search-field">
+        
+        <button type="submit" class="search-button">Search</button>
+        </div>
+    </form><br>
+
+    <!-- End of SEARCH -->
+
+<table class="table table-striped index-table">
+    <tr>
+        <th> Name </th>
+        <th> Gender </th>
+        <th> Age </th>     
+        <th> Coach </th>
+        <th> Region </th>
+    </tr>
+
+    <% athletes.forEach(function(athlete) { %>
         <tr>
-            <th> Name </th>
-            <th> Gender </th>
-            <th> Age </th>     
-            <th> Coach </th>
-            <th> Region </th>
+            <td><a href="/athlete/detail?id=<%= athlete._id %>"> <p> <%= athlete.nameAthlete %> </p></a> </td>
+            <td><%= athlete.gender %></td>
+            <td><%= moment().diff(athlete.dateOfBirth, 'years') %> years</td>
+            <td><%= athlete.coach.nameCoach %></td>
+            <td><%= athlete.region.nameRegion %></td>
         </tr>
-    
-        <% athletes.forEach(function(athlete) { %>
-    
-            <tr>
-                <td><a href="/athlete/detail?id=<%= athlete._id %>"> <p> <%= athlete.nameAthlete %> </p></a> </td>
-                <td><%= athlete.gender %></td>
-                <td><%= moment().diff(athlete.dateOfBirth, 'years') %> years</td>
-                <td><%= athlete.coach.nameCoach %></td>
-                <td><%= athlete.region.nameRegion %></td>
-            </tr>
-        <% }) %>
-    </table>
-    
-    </section>
-    
+    <% }) %>
+</table>
+
+</section>

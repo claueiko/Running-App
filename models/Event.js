@@ -1,6 +1,7 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const eventSchema = mongoose.Schema({
+const eventSchema = mongoose.Schema(
+  {
     nameEvent: String,
     emailAddressEvent: String,
     dateEvent: Date,
@@ -8,19 +9,19 @@ const eventSchema = mongoose.Schema({
     linkEvent: String,
     // photo: Insert photo later
     athlete: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Athlete",
-        },
-      ],
-    region: 
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Region"
-        },
-},
-{timestamps: true})
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Athlete",
+      },
+    ],
+    region: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Region",
+    },
+  },
+  { timestamps: true }
+);
 
 const Event = mongoose.model("Event", eventSchema);
 
-module.exports = {Event}
+module.exports = { Event };

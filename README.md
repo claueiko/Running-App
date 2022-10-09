@@ -8,6 +8,8 @@ Anyone can Add new Running Events and Sign Up on their website.
 
 This is my first Full Stack Web App - Project 02 on General Assembly with my cohort mate Rob Sesemann and was built in one week, ending Thursday Sept.15, 2022.
 
+You can see it here: https://corrida-project.herokuapp.com/
+
 ## Technologies
 HTML, CSS, jQuery, MongoDB and NodeJS.
 
